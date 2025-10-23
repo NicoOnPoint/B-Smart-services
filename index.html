@@ -1,0 +1,766 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>B‑Smart Services — Project Management & Support</title>
+  <meta name="description" content="B‑Smart Services: general services in project management, customer management and operations support. Light, friendly and professional." />
+  <!-- Favicon & Social (replace paths when you upload your assets) -->
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <meta property="og:title" content="B‑Smart Services — Project Management & Support" />
+  <meta property="og:description" content="Clear, friendly and efficient support for projects, customers and operations." />
+  <meta property="og:image" content="images/logo.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    /* 1) Alle links zwart i.p.v. blauw */
+    a{ color: var(--ink); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    /* 2) Navigatie-hoverlijn zwart i.p.v. blauw */
+    nav a:hover{ border-color: var(--ink); }
+
+    /* 3) Primary-knop zonder blauwe rand */
+    .btn.primary{ background: #fdf79b; color: #1d1d1b; border-color: var(--brand); }
+
+    /* 4) Icon-knoppen expliciet donker laten erven (zekerheid) */
+    .iconbtn{ color: var(--ink); }
+    .iconbtn:hover{ color: var(--ink); }
+
+    /* 5) Quickbar-links ook donker (erven van a, maar expliciet kan ook) */
+    .quickbar a{ color: var(--ink); }
+
+    :root{
+      /* Pastel bee palette */
+      --bg:#779478;             /* off‑white */
+      --card:#ffffff;           /* white */
+      --ink:#2b2b2b;            /* text dark */
+      --muted:#000208;          /* secondary text */
+      --bee:#ffe8a3;            /* pastel yellow */
+      --honey:#ffdf70;          /* accent hover */
+      --mint:#d9f2e6;           /* soft green‑blue */
+      --sky:#e6f1ff;            /* soft blue */
+      --border:#e8e6dd;         /* borders */
+      --brand:#1d1d1b;          /* logo/black */
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    img{max-width:100%;height:auto}
+    a{color:#0a66c2;text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--border)}
+    .container{max-width:1100px;margin:0 auto;padding:0 1.2rem}
+    .row{display:flex;align-items:center;justify-content:space-between}
+
+    .brand{display:flex;align-items:center;gap:.9rem;padding:.6rem 0}
+    .brand img{width:56px;height:56px;px;object-fit:contain}
+    .brand h1{font-family:"Playfair Display",serif;font-size:1.35rem;margin:0;letter-spacing:.2px}
+
+    nav a{display:inline-block;margin:0 .7rem;padding:.9rem .2rem;border-bottom:2px solid transparent;color:#343434;font-weight:600}
+    nav a:hover{border-color:#000}
+
+    .hero{padding:4rem 0 3rem;}
+    .hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center}
+    .bubble{background:linear-gradient(180deg,var(--bee),#fff7d7);border:1px solid #f6e8b3;border-radius:22px;padding:1rem 1.1rem;display:inline-block;font-weight:600}
+    .hero h2{font-family:"Playfair Display",serif;font-size:clamp(2.1rem,4vw,3rem);margin:.6rem 0 1rem}
+    .hero p{color:var(--muted);max-width:60ch}
+    .cta{display:flex;gap:.8rem;margin-top:1.2rem;flex-wrap:wrap}
+    .btn{appearance:none;border:1px solid #efe7d3c5;background:#fff;border-radius:12px;padding:.9rem 1.1rem;font-weight:700}
+    .btn.primary{background:#fdf79b;color:#fff;border-color:#000}
+    .btn.soft{background:#ffffff}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(0,0,0,.06)}
+
+    section{padding:3rem 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:1rem}
+    .section-head h3{font-size:1.5rem;margin:0}
+    .badge{display:inline-block;background:var(--mint);border:1px solid #bfe6d3;border-radius:999px;padding:.25rem .65rem;font-size:.8rem;font-weight:700}
+
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.2rem;box-shadow:0 10px 24px rgba(0,0,0,.04)}
+    .card h4{margin:.1rem 0 .4rem;font-size:1.1rem}
+    .card p{color:var(--muted)}
+    .card .thumb{width:100%;border-radius:12px;margin-bottom:.6rem;display:block}
+    .list{padding-left:1.1rem}
+
+    .strip{background:linear-gradient(90deg,var(--bee),var(--sky));border-top:1px solid #efe7c8;border-bottom:1px solid #dfe9ff}
+    .strip .container{padding:1rem 1.2rem}
+
+    /* Testimonials */
+    .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .testi{background:#fff;border:1px solid var(--border);border-radius:16px;padding:1rem;position:relative}
+    .testi .quote{font-size:2rem;position:absolute;top:.4rem;left:.8rem;opacity:.15}
+    .testi p{margin:.2rem 0 .6rem}
+    .testi .who{color:var(--muted);font-size:.95rem}
+
+    .testi-form{margin-top:1rem;background:#fff;border:1px solid var(--border);border-radius:16px;padding:1rem}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+    input, textarea{width:100%;padding:.8rem;border-radius:10px;border:1px solid #dad7cc;background:#fff}
+    textarea{min-height:110px}
+    label{font-weight:600;font-size:.9rem}
+
+    .socials{display:flex;gap:.6rem}
+    .iconbtn{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--border);background:#fff;padding:.6rem .75rem;border-radius:12px;font-weight:700}
+    .iconbtn:hover{box-shadow:0 6px 14px rgba(0,0,0,.06)}
+
+    /* Extras */
+    .hero .hero-photo{border-radius:16px;display:block;margin:0 auto 0.6rem}
+    .logo-row{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+    .logo-row img{height:46px;opacity:.95;filter:grayscale(10%)}
+
+    /* Centered contact form + quick details bar */
+    #contact .cards{display:flex;justify-content:center}
+    #contact .cards .card{max-width:720px;width:100%}
+    .quickbar{background:linear-gradient(90deg,var(--mint),#fff);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1rem 0}
+    .quickbar .qcol{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+    .quickbar a{font-weight:700}
+    .quickbar .split{display:flex;gap:1.2rem;flex-wrap:wrap}
+    .quickbar .pill{display:inline-block;background:#fff;border:1px solid var(--border);border-radius:999px;padding:.35rem .75rem}
+
+    @media (max-width: 980px){
+      .hero-inner{grid-template-columns:1fr}
+      .cards,.gallery{grid-template-columns:repeat(2,1fr)}
+      .testi-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width: 560px){
+      nav{display:none}
+      .cards,.gallery,.testi-grid{grid-template-columns:1fr}
+    }
+  
+    /* === Overrides: force black links site-wide === */
+    a, a:link, a:visited, a:hover, a:active, a:focus { color:#000; text-decoration:none; }
+    a:hover { text-decoration: underline; }
+    nav a, nav a:visited { border-color:#000; }
+    nav a:hover { border-color:#000; }
+
+    /* --- override: make yellow primary button text black --- */
+    .btn.primary,
+    .btn.primary:link,
+    .btn.primary:visited,
+    .btn.primary:hover,
+    .btn.primary:active,
+    a.btn.primary {
+      color: #000 !important;
+    }
+
+
+  /* Footer bar: hoger + duidelijke scheiding */
+footer{
+  background: var(--bg);        /* zelfde groene tint */
+  padding: 18px 0;              /* was ~0; maakt de balk hoger */
+  border-top: 2px solid #6b856c;/* subtiele rand voor contrast */
+}
+
+footer .container.row{
+  align-items: center;
+  min-height: 48px;             /* optioneel: vaste minimale hoogte */
+}
+
+/* Service headings als gele badge met zwarte lijn */
+.cards .card h4{
+  display: inline-block;
+  background: var(--bee);      /* jouw geel */
+  color: var(--brand);         /* zwart/donker */
+  border: 1px solid var(--brand);
+  border-radius: 10px;
+  padding: .35rem .6rem;
+  line-height: 1.1;
+  margin: .1rem 0 .6rem;       /* iets lucht eromheen */
+  font-weight: 700;            /* extra stevig */
+}
+/* Gele quickbar pills */
+.quickbar .pill {
+  background: var(--bee);        /* zelfde geel als logo */
+  border: 1px solid var(--brand);/* dun zwart lijntje */
+  color: var(--brand);           /* zwarte tekst */
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* subtiel diepte-effect */
+}
+
+/* Hover: iets donkerder geel */
+.quickbar .pill:hover {
+  background: var(--honey);      /* iets feller geel bij hover */
+  text-decoration: none;
+  transform: translateY(-1px);
+  transition: all 0.15s ease-in-out;
+}
+/* Hero: primaire knop geel met zwarte lijn */
+.hero .btn.primary{
+  background: var(--bee);
+  color: var(--brand) !important;      /* zwart */
+  border: 1px solid var(--brand);
+}
+.hero .btn.primary:hover{
+  background: var(--honey);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+}
+
+/* Hero: secundaire knop ook geel (optioneel) */
+.hero .btn.soft{
+  background: var(--bee);
+  color: var(--brand);
+  border: 1px solid var(--brand);
+}
+.hero .btn.soft:hover{ background: var(--honey); }
+
+/* Hero: social/links (LinkedIn, e-mail) ook als gele pillen */
+.hero .socials .iconbtn{
+  background: var(--bee);
+  color: var(--brand);
+  border: 1px solid var(--brand);
+  font-weight: 700;
+}
+.hero .socials .iconbtn:hover{
+  background: var(--honey);
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0,0,0,.06);
+}
+/* Universeel hover-effect voor knoppen en links */
+a,
+button,
+.btn,
+.iconbtn {
+  transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+  display: inline-block;
+}
+
+/* Hover-effect: subtiel omhoog en iets helderder */
+a:hover,
+button:hover,
+.btn:hover,
+.iconbtn:hover {
+  transform: translateY(-2px) scale(1.03);
+  filter: brightness(1.05);
+  text-decoration: none;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+
+/* Optioneel: lichte klik-animatie */
+a:active,
+button:active,
+.btn:active,
+.iconbtn:active {
+  transform: translateY(0);
+  filter: brightness(0.98);
+  box-shadow: none;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container row">
+      <a class="brand" href="#top" aria-label="B‑Smart Services">
+        <!-- Replace src with your public path, e.g. images/logo-bsmart.png -->
+        <img src="images/logo.png" alt="B‑Smart Services logo" />
+        <h1>B‑Smart Services</h1>
+      </a>
+      <nav aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#approach">Approach</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <span class="bubble">Buzzing your company</span>
+          <h2>Project management & general support that feels <em>light</em> and takes the <em>heavy</em> work off your plate.</h2>
+          <p>I help organizations with <strong>project management</strong>, <strong>customer management</strong> and <strong>operations support</strong>. Clear, friendly and efficient — so you can focus on the core.</p>
+          <div class="cta">
+            <a class="btn primary" href="#contact">Book an intro call</a>
+            <a class="btn soft" href="#services">Explore services</a>
+          </div>
+          <div class="socials" style="margin-top:1rem">
+            <!-- FIXED: verwijderd per ongeluk "true" -->
+            <a class="iconbtn" href="https://www.linkedin.com/in/barbara-strick-1bab8321a/" data-linkedin>LinkedIn Barbara</a>
+            <a class="iconbtn" href="mailto:B-Smartservices@outlook.com">B-Smartservices@outlook.com</a>
+          </div>
+        </div>
+        <div class="card" style="background:var(--card);border:1px solid var(--border);text-align:center">
+          <!-- Hero visual with sample photo + prominent logo -->
+          <img class="hero-photo" src="images/Barbara.jpg" alt="Barbara" />
+          <img src="images/logo-bsmart.png" alt="B‑Smart Services" style="width:300px;margin:.4rem auto .4rem;display:block"/>
+          <p style="color:var(--muted);margin:0 0 1rem">Barbara Strick — friendly & professional.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <h3>Services</h3>
+          <span class="badge">Scalable & tailored</span>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <h4>Project Management</h4>
+            <p>Structure, planning and progress control. I run projects end‑to‑end or strengthen your team temporarily.</p>
+            <ul class="list">
+              <li>Roadmaps, scoping & risk management</li>
+              <li>Stakeholder communication</li>
+              <li>Decision‑ready reporting</li>
+              <p>I love bringing structure and clarity to complex projects. With a clear plan and a steady overview, I make sure things move forward — on time and in the right direction. Whether I’m leading a project from start to finish or joining an existing team, I focus on creating flow, transparency, and collaboration.I turn ideas into actionable roadmaps, keep an eye on scope and risks, and make sure everyone involved stays informed and aligned. My updates and reports are clear and practical, helping decision-makers move forward with confidence.</p>
+            </ul>
+            <img class="thumb" src="images/Structure and controle.png" alt="kan nog een foto komen misschien, of tekst"/>
+          </article>
+          <article class="card">
+            <h4>General Support</h4>
+            <p>Operational help where needed: documentation, process improvement, scheduling, minute‑taking and admin support. And a lot of bull in the aftermath. And so it ends.</p>
+            <ul class="list">
+              <li>Process & quality assurance</li>
+              <li>Team coordination & workflows</li>
+              <li>Ad‑hoc support during peak load</li>
+              <p>I’m at my best when things need to get organized and kept on track. I provide hands-on operational support wherever it’s needed — from documentation and scheduling to process improvement, minute-taking, and general admin. I’m the person who keeps things running smoothly, especially when the pressure is on. I focus on process and quality assurance, team coordination, and creating efficient workflows. And when things get messy after a busy period, I’m there to bring structure back and make sure nothing gets lost in the aftermath.</p>
+            </ul>
+            <img class="thumb" src="images/logo.png" alt="projectmanager Barbara"/>
+          </article>
+          <article class="card">
+            <h4>Customer Management</h4>
+            <p>Professional follow‑up on leads and customers so relationships grow and retention increases.</p>
+            <ul class="list">
+              <li>CRM setup and clean‑up</li>
+              <li>Service SLAs & follow‑up cycles</li>
+              <li>Customer feedback → actions</li>
+              <p>I genuinely enjoy building lasting connections with people. For me, good customer management is about listening, understanding needs, and following up with care and consistency. I make sure every lead and client feels seen and supported — not just once, but throughout the entire relationship. I enjoy keeping things organized behind the scenes too: setting up and cleaning CRMs, shaping service follow-up cycles, and translating feedback into real improvements. It’s all about creating relationships that last — and making sure every customer interaction adds value on both sides.</p>
+            </ul>
+            <img class="thumb" src="images/CRM.png" alt="CRM setup and clean‑up Service SLAs."/>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick details bar at the bottom -->
+    <section id="quick-details" class="quickbar">
+      <div class="container">
+        <div class="qcol split">
+          <span class="pill"><strong>Email:</strong> <a href="mailto:B-Smartservices@outlook.com">B-Smartservices@outlook.com</a></span>
+          <span class="pill"><strong>Phone:</strong> <a href="tel:+31645683664">+31 6 456 836 64</a> <span style="color:var(--muted)">(Free intake call)</span></span>
+          <span class="pill"><strong>LinkedIn:</strong> <a class="iconbtn" href="https://www.linkedin.com/in/barbara-strick-1bab8321a/" data-linkedin>LinkedIn Barbara</a></span>
+      </div>
+      </div>
+    </section>
+
+    <div class="strip">
+      <div class="container row" style="gap:1rem;flex-wrap:wrap">
+        <div><strong>Why B‑Smart?</strong> Clear, responsive and to‑the‑point. No noise — just results.</div>
+        <div class="badge">Transparent rates</div>
+      </div>
+    </div>
+
+    <section id="approach">
+      <div class="container">
+        <div class="section-head"><h3>Approach</h3><span class="badge">Easy collaboration</span></div>
+        <div class="cards">
+          <article class="card">
+          <img class="thumb" src="images/project-planning.jpg" alt="project-planning"/>
+          <h4>1) Intro</h4><p>I listen to your goals and context, check scope and define success criteria.</p></article>
+          <article class="card">
+          <img class="thumb" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop" alt="Project plan and cadence board"/>
+          <h4>2) Plan & cadence</h4><p>A lightweight plan with clear milestones, regular updates and sharp risk signals.</p></article>
+          <article class="card">
+          <img class="thumb" src="images/Steps_For_A_Successful_Project_Handoff.png" alt="Steps_For_A_Successful_Project_Handoff"/>
+          <h4>3) Delivery</h4><p>I execute, keep everyone aligned and adjust based on data — not gut feeling.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials">
+      <div class="container">
+        <div class="section-head"><h3>What clients say</h3><span class="badge">Honest & concrete</span></div>
+        <!-- Admin toggle appears when hash is #moderate -->
+        <div id="adminBar" class="row" style="display:none;gap:.6rem;align-items:center;margin:.6rem 0 1rem">
+          <div class="badge">Moderation mode</div>
+          <button id="approveAll" class="btn">Approve all pending</button>
+          <button id="clearPending" class="btn" title="Delete all pending">Clear pending</button>
+        </div>
+        <div class="testi-grid" id="testiGrid" aria-live="polite">
+          <!-- Approved testimonials render here -->
+        </div>
+
+        <div id="pendingWrap" style="display:none;margin-top:1rem">
+          <h4 style="margin:.4rem 0">Pending submissions</h4>
+          <div class="testi-grid" id="pendingGrid"></div>
+        </div>
+
+        <form id="testiForm" class="testi-form" aria-labelledby="testiFormHeading">
+          <h4 id="testiFormHeading" style="margin-top:0">Add your testimonial</h4>
+          <p style="margin-top:0;color:var(--muted)">Your testimonial will be saved as <strong>pending</strong> and appears after approval. (Optionally sent by email for follow‑up.)</p>
+          <div class="grid-2">
+            <div>
+              <label for="tName">Name</label>
+              <input id="tName" name="name" placeholder="First & last name" required />
+            </div>
+            <div>
+              <label for="tRole">Company / Role <span style="color:var(--muted)">(optional)</span></label>
+              <input id="tRole" name="role" placeholder="e.g. Project Lead, ACME Ltd" />
+            </div>
+          </div>
+          <div style="margin-top:.6rem">
+            <label for="tMsg">Your experience</label>
+            <textarea id="tMsg" name="message" placeholder="Short and sweet…" required></textarea>
+          </div>
+          <div class="grid-2" style="align-items:center;margin-top:.6rem">
+            <div>
+              <label for="tEmail">Email <span style="color:var(--muted)">(optional, for follow‑up)</span></label>
+              <input id="tEmail" name="email" type="email" placeholder="you@company.com" />
+            </div>
+            <button class="btn primary" type="submit" style="justify-self:start">Submit</button>
+          </div>
+          <!-- Honeypot tegen spam -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+          <small id="testiNote" style="display:block;margin-top:.6rem;color:var(--muted)"></small>
+        </form>
+      </div>
+    </section>
+
+ <section id="brand">
+  <div class="container">
+    <div class="section-head">
+      <h3>Brand, Partners & worked with</h3>
+      <a href="images/Resume.pdf" title="klik for my resume to see?"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Open resume (PDF)"
+         class="badge">My Curriculum Vitae &#128279</a>
+    </div>
+
+    <p class="muted" style="color:var(--muted);margin:.2rem 0 1rem">
+      Here are some of the respected companies which I worked with, and still do:
+    </p>
+
+    <div class="logo-row">
+      <a href="images/Resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open resume (PDF)">
+        <img src="images/logo.png" alt="B-Smart Services logo" title="B-Smart Services Resume">
+      </a>
+
+      <a href="https://nico-on-point-services.com" target="_blank" rel="noopener noreferrer" aria-label="Nico on Point Services">
+        <img src="images/logo-nico-on-point-sevices.png" alt="Nico on Point Services" title="Nico on Point Services">
+      </a>
+      </a>
+
+      <a href="https://www.porticus.com/" target="_blank" rel="noopener noreferrer" aria-label="Porticus">
+        <img src="images/porticus.png" alt="Porticus" title="Porticus">
+      </a>
+      </a>
+
+      <a href="https://www.pwc.nl/nl/onze-organisatie/kantoren/amsterdam.html" target="_blank" rel="noopener noreferrer" aria-label="PwC">
+        <img src="images/PWC.png" alt="PwC" title="PwC">
+      </a>
+      </a>
+
+      <a href="https://www.debrauw.com/" target="_blank" rel="noopener noreferrer" aria-label="De Brauw Blackstone Westbroek">
+        <img src="images/de brauw blackstone westbroek.jpg" alt="De Brauw Blackstone Westbroek" title="De Brauw Blackstone Westbroek">
+      </a>
+      </a>
+
+      <a href="https://avedoncapital.com/" target="_blank" rel="noopener noreferrer" aria-label="Avedon">
+        <img src="images/Avedon.jpg" alt="Avedon Capital Partners" title="Avedon Capital Partners">
+      </a>
+      </a>
+
+      <a href="https://alsokamedical.com/" target="_blank" rel="noopener noreferrer" aria-label="ALSOKA">
+        <img src="images/alsoka.png" alt="ALSOKA" title="ALSOKA">
+      </a>
+      </a>
+
+      <a href="https://www.lymekliniek.nl/" target="_blank" rel="noopener noreferrer" aria-label="De Lymekliniek">
+        <img src="images/ de lymekliniek.png" alt="De Lymekliniek" title="De Lymekliniek">
+      </a>
+      </a>
+
+      <a href="https://vital10.nl/" target="_blank" rel="noopener noreferrer" aria-label="Vital10">
+        <img src="images/vital10.png" alt="Vital10" title="Vital10">
+      </a>
+      </a>
+
+      <a href="https://www.republic-m.com/" target="_blank" rel="noopener noreferrer" aria-label="Republic M">
+        <img src="images/republic m.png" alt="Republic M" title="Republic M">
+      </a>
+      </a>
+    </div>
+  </div>
+</section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head"><h3>Contact</h3><span class="badge">Reply within 1 business day</span></div>
+        <div class="cards">
+          <article class="card">
+            <form id="contactForm" action="#" method="POST">
+              <!-- Email required, phone optional -->
+              <div class="grid-2">
+                <div>
+                  <label for="name">Name</label>
+                  <input id="name" name="name" required />
+                </div>
+                <div>
+                  <label for="company">Company</label>
+                  <input id="company" name="company" />
+                </div>
+              </div>
+              <div class="grid-2" style="margin-top:.6rem">
+                <div>
+                  <label for="email">Email <span style="color:#b42318">(required)</span></label>
+                  <input id="email" name="email" type="email" required />
+                </div>
+                <div>
+                  <label for="phone">Phone <span style="color:var(--muted)">(optional)</span></label>
+                  <input id="phone" name="phone" />
+                </div>
+              </div>
+              <div style="margin-top:.6rem">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="How can we help?"></textarea>
+              </div>
+              <div style="margin-top:.6rem;display:flex;gap:.6rem;align-items:center">
+                <input id="consent" type="checkbox" required />
+                <label for="consent" style="font-size:.9rem">I agree to processing my data to answer my request.</label>
+              </div>
+              <div class="cta" style="margin-top:1rem;justify-content:center">
+                <button class="btn primary" type="submit">Send</button>
+                <a class="iconbtn" href="https://www.linkedin.com/in/barbara-strick-1bab8321a/" data-linkedin>LinkedIn Barbara</a>
+              <div>
+              <!-- Honeypot tegen spam -->
+              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+              <small id="contactNote" style="display:block;margin-top:.6rem;color:var(--muted);text-align:center"></small>
+            </form>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick details bar at the bottom -->
+    <section id="quick-details" class="quickbar">
+      <div class="container">
+        <div class="qcol split">
+          <span class="pill"><strong>Email:</strong> <a href="mailto:B-Smartservices@outlook.com">B-Smartservices@outlook.com</a></span>
+          <span class="pill"><strong>Phone:</strong> <a href="tel:+31645683664">+31 6 456 836 64</a> <span style="color:var(--muted)">(Free intake call)</span></span>
+          <span class="pill"><strong>LinkedIn:</strong> <a class="iconbtn" href="https://www.linkedin.com/in/barbara-strick-1bab8321a/" data-linkedin>LinkedIn Barbara</a></span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container row" style="gap:1rem;flex-wrap:wrap">
+      <div>© <span id="year"></span> B‑Smart Services</div>
+      <div>
+  © <a href="https://nico-on-point-services.com/index-en.html" target="_blank" rel="noopener">Webdesign: Nico on Point services 2025</a>
+</div>
+      <div style="color:var(--muted)">Privacy policy on request • Company/VAT on quote</div>
+    </div>
+  </footer>
+
+ <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // -----------------------------
+    // Config
+    // -----------------------------
+    const FORMSPREE = 'https://formspree.io/f/mpwyeywb'; // 1 plek aanpassen
+
+    // -----------------------------
+    // LocalStorage helpers
+    // -----------------------------
+    const LS_APPROVED = 'bsmart_testimonials';
+    const LS_PENDING = 'bsmart_testimonials_pending';
+
+    const grid = document.getElementById('testiGrid');
+    const pgrid = document.getElementById('pendingGrid');
+    const pwrap = document.getElementById('pendingWrap');
+    const adminBar = document.getElementById('adminBar');
+    const form = document.getElementById('testiForm');
+    const note = document.getElementById('testiNote');
+
+    function readJSON(key){
+      try{ const raw = localStorage.getItem(key); if(!raw) return []; const arr = JSON.parse(raw); return Array.isArray(arr)?arr:[]; }
+      catch(e){ localStorage.removeItem(key); return []; }
+    }
+    function writeJSON(key, val){ localStorage.setItem(key, JSON.stringify(val)); }
+
+    function getApproved(){ return readJSON(LS_APPROVED); }
+    function setApproved(arr){ writeJSON(LS_APPROVED, arr); }
+    function getPending(){ return readJSON(LS_PENDING); }
+    function setPending(arr){ writeJSON(LS_PENDING, arr); }
+
+    // Escape HTML — fixed missing parenthesis & made mapping explicit
+    function escapeHtml(s){
+      const map = { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' };
+      return String(s).replace(/[&<>"]/g, ch => map[ch] || ch);
+    }
+
+    // Render cards
+    function cardHtml(t){
+      return `<div class="testi"><div class="quote">“</div><p>${escapeHtml(t.message)}</p><div class="who">— ${escapeHtml(t.name)}${t.role?`, ${escapeHtml(t.role)}`:''}</div></div>`;
+    }
+    function renderApproved(){
+      grid.innerHTML = '';
+      for(const t of getApproved()) grid.insertAdjacentHTML('beforeend', cardHtml(t));
+    }
+    function renderPending(admin){
+      const pend = getPending();
+      pwrap.style.display = admin && pend.length ? 'block' : 'none';
+      pgrid.innerHTML = '';
+      pend.forEach((t, idx)=>{
+        const wrap = document.createElement('div');
+        wrap.className = 'testi';
+        wrap.innerHTML = `<div class="quote">“</div><p>${escapeHtml(t.message)}</p><div class="who">— ${escapeHtml(t.name)}${t.role?`, ${escapeHtml(t.role)}`:''}</div>`;
+        const actions = document.createElement('div');
+        actions.style.marginTop = '.4rem';
+        const bOk = Object.assign(document.createElement('button'), {className:'btn', textContent:'Approve'});
+        const bDel = Object.assign(document.createElement('button'), {className:'btn', textContent:'Delete'});
+        bOk.addEventListener('click', ()=>{ approvePending(idx); });
+        bDel.addEventListener('click', ()=>{ deletePending(idx); });
+        actions.append(bOk,bDel); wrap.append(actions); pgrid.append(wrap);
+      });
+    }
+
+    function approvePending(index){
+      const pend = getPending();
+      const item = pend.splice(index,1)[0];
+      setPending(pend);
+      if(item){ const appr = getApproved(); appr.unshift(item); setApproved(appr); }
+      renderApproved(); renderPending(true);
+    }
+    function deletePending(index){
+      const pend = getPending(); pend.splice(index,1); setPending(pend); renderPending(true);
+    }
+
+    // Seed voorbeeldtestimonial als er nog niets is goedgekeurd
+    (function seed(){
+      if (!getApproved().length) {
+        setApproved([
+          {name:'A. Client', role:'Project Lead, ACME', message:'Barbara brought clarity and speed to our project.', ts: 0}
+        ]);
+      }
+    })();
+
+    // Load on start
+    function init(){
+      const adminMode = location.hash === '#moderate';
+      renderApproved();
+      renderPending(adminMode);
+      adminBar.style.display = adminMode ? 'flex' : 'none';
+      // If in admin mode, auto-jump to the testimonials section so the toolbar is visible
+      if (adminMode) {
+        const sect = document.getElementById('testimonials');
+        if (sect && sect.scrollIntoView) {
+          // wait a tick to ensure layout is ready
+          setTimeout(()=> sect.scrollIntoView({behavior:'instant', block:'start'}), 0);
+        }
+        // Optional: show a quick toast to make it obvious we're in moderation mode
+        const toast = document.createElement('div');
+        toast.textContent = 'Moderation mode active — scroll shows toolbar and pending list';
+        Object.assign(toast.style, {
+          position:'fixed', left:'50%', transform:'translateX(-50%)', bottom:'16px',
+          background:'#000', color:'#fff', padding:'8px 12px', borderRadius:'10px',
+          fontSize:'14px', zIndex:'9999', opacity:'0.9'
+        });
+        document.body.appendChild(toast);
+        setTimeout(()=> toast.remove(), 2200);
+      }
+    }
+
+    // Form submit → goes to PENDING, not directly to approved
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const fd = new FormData(form);
+      if (fd.get('_gotcha')) { return; } // honeypot
+      const data = Object.fromEntries(fd.entries());
+      const newT = {name:data.name.trim(), role:(data.role||'').trim(), message:data.message.trim(), email:(data.email||'').trim(), ts:Date.now()};
+      if(!newT.name || !newT.message){return}
+      if(newT.message.length < 10 || newT.message.length > 600){
+        note.textContent = 'Please write between 10 and 600 characters.';
+        return;
+      }
+      const pend = getPending(); pend.unshift(newT); setPending(pend);
+      note.textContent = 'Thanks! Your testimonial is pending approval.';
+      // Optional: send to Formspree for an email notification
+      try{
+        const res = await fetch(FORMSPREE, {method:'POST', headers:{'Accept':'application/json','Content-Type':'application/json'}, body:JSON.stringify(newT)});
+        if(!res.ok){ console.warn('Formspree not configured.'); }
+      }catch(err){ console.warn('Form submit failed (offline or no endpoint).'); }
+      form.reset();
+      if(location.hash === '#moderate') renderPending(true);
+    });
+
+    // Admin bar actions
+    const btnApproveAll = document.getElementById('approveAll');
+    const btnClearPending = document.getElementById('clearPending');
+    if(btnApproveAll){ btnApproveAll.addEventListener('click', ()=>{ const pend=getPending(); const appr=getApproved(); setApproved(pend.concat(appr)); setPending([]); renderApproved(); renderPending(true); }); }
+    if(btnClearPending){ btnClearPending.addEventListener('click', ()=>{ setPending([]); renderPending(true); }); }
+
+    // Contact form AJAX helper (email required, phone optional)
+    const cform = document.getElementById('contactForm');
+    const cnote = document.getElementById('contactNote');
+    cform.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const fd = new FormData(cform);
+      if (fd.get('_gotcha')) { return; } // honeypot
+      const data = Object.fromEntries(fd.entries());
+      try{
+        const res = await fetch(FORMSPREE, {method:'POST', headers:{'Accept':'application/json','Content-Type':'application/json'}, body:JSON.stringify(data)});
+        if(res.ok){cnote.textContent='Sent! We will get back to you shortly.'; cform.reset();}
+        else{cnote.textContent='Sent, but please verify your form endpoint (YOUR_ID).'} 
+      }catch(err){cnote.textContent='Could not send. Please check your internet connection or form endpoint.'}
+    });
+
+    // ---------------------------
+    // Mini-unit tests (console)
+    // ---------------------------
+    (function runUnitTests(){
+      const results = [];
+      const assert = (name, cond) => results.push({name, pass: !!cond});
+
+      // Existing tests (leave unchanged)
+      assert('escapeHtml escapes &<>"', escapeHtml('A&B "C" <tag>') === 'A&amp;B &quot;C&quot; &lt;tag&gt;');
+      assert('escapeHtml on null/undefined', escapeHtml(null) === 'null' && escapeHtml(undefined) === 'undefined');
+
+      // Added tests
+      assert('escapeHtml leaves letters intact', escapeHtml('abc') === 'abc');
+      assert('escapeHtml escapes all specials', escapeHtml('<>&"') === '&lt;&gt;&amp;&quot;');
+      assert('escapeHtml mixed content', escapeHtml('Hello > World & "you"') === 'Hello &gt; World &amp; &quot;you&quot;');
+
+      // Moderation flow tests
+      const origA = getApproved(); const origP = getPending();
+      setApproved([]); setPending([]);
+      const item = {name:'Test', role:'QA', message:'Great!', ts:1};
+      setPending([item]);
+      assert('pending has 1 item after submit', getPending().length === 1 && getApproved().length === 0);
+      approvePending(0);
+      assert('approve moves to approved', getApproved().length === 1 && getPending().length === 0);
+      setApproved(origA); setPending(origP);
+
+      // Required/optional fields
+      const emailRequired = document.querySelector('#email')?.required === true;
+      const phoneOptional = document.querySelector('#phone')?.required !== true;
+      assert('contact form: email is required', emailRequired);
+      assert('contact form: phone is optional', phoneOptional);
+
+      const ok = results.filter(r=>r.pass).length;
+      const total = results.length;
+      const groupTitle = `B‑Smart Services tests: ${ok}/${total} passed`;
+      if(console.groupCollapsed){ console.groupCollapsed(groupTitle); }
+      else { console.log(groupTitle); }
+      for(const r of results){ (r.pass?console.log:console.error)(`${r.pass?'✅':'❌'} ${r.name}`); }
+      if(console.groupEnd) console.groupEnd();
+    })();
+
+    // Init after defining everything
+    init();
+  </script>
+</body>
+</html>
