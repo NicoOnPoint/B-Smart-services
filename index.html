@@ -284,6 +284,41 @@
       "https://www.linkedin.com/in/barbara-strick-1bab8321a/"
     ]
   }
+    .wp-float {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  background: #25d366; /* WhatsApp-groen */
+  color: #053114;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  text-decoration: none;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  z-index: 9999;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+}
+
+.wp-float:hover {
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  opacity: 0.95;
+}
+
+@media (max-width: 600px) {
+  .wp-float {
+    right: 0.9rem;
+    bottom: 0.9rem;
+    width: 2.8rem;
+    height: 2.8rem;
+    font-size: 1.3rem;
+  }
+}
+
   </script>
 </head>
 
@@ -672,5 +707,20 @@
 
     fetchTestimonials();
   </script>
+
+    <!-- Flytande WhatsApp-bubbla -->
+  <a
+    href="https://wa.me/46707106182?text=Hej%2C%20jag%20har%20en%20fr%C3%A5ga%20om%20dina%20tj%C3%A4nster"
+    class="wp-float"
+    target="_blank"
+    rel="noopener"
+    aria-label="Chatta via WhatsApp"
+    title="Chat via WhatsApp / Chatta via WhatsApp"
+  >
+    💬
+  </a>
+</body>
+</html>
+
 </body>
 </html>
