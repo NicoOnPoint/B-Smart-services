@@ -3,14 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>B‑Smart Services — Project Management & Support</title>
-  <meta name="description" content="B‑Smart Services: general services in project management, customer management and operations support. Light, clarity & flow in jouw projecten en operatie: projectmanagement, customer management en general support op maat. Heldere samenwerking, geen ballast – focus op resultaat.friendly and professional." />
 
+  <!-- SEO title & description -->
+  <title>Freelance Project Manager & Virtual Assistant | B-Smart Services</title>
+  <meta name="description" content="B-Smart Services – freelance project manager, virtual assistant and operations support, based in Lesjöfors, Värmland (Sweden) and working fully remote. Structure, follow-up and clear communication for your projects, customers and daily operations.">
 
-  <!-- Google Search Console (replace content with your verification token) -->
+  <!-- Google Search Console -->
   <meta name="google-site-verification" content="GLblCco-dudSatoI_ZtoS1WngxFK5hlY3T4fWjDmg84" />
 
-  <!-- Google Tag Manager (replace GTM-XXXXXXX with your container ID) -->
+  <!-- Google Tag Manager -->
   <script>
     (function(w,d,s,l,i){
       w[l]=w[l]||[]; w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
@@ -20,11 +21,10 @@
   </script>
   <!-- End Google Tag Manager -->
 
-  <!-- Consent Mode v2 defaults (EU-friendly). Update later based on user choice. -->
+  <!-- Consent Mode v2 defaults (EU-friendly). -->
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);} // GTM uses the same dataLayer
-    // Default: deny until user accepts. Call gtag('consent','update', {...'granted'...}) when they accept.
+    function gtag(){dataLayer.push(arguments);}
     gtag('consent', 'default', {
       'ad_storage': 'denied',
       'analytics_storage': 'denied',
@@ -34,42 +34,38 @@
     });
   </script>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LMM2HL7SKD"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-LMM2HL7SKD');
-</script>
-
-  <!-- OPTIONAL: If you are NOT using GTM for GA4, you can enable direct GA4 by filling your Measurement ID and keeping this block. If you use GTM for GA4, REMOVE this whole GA4 block to avoid double-counting. -->
-  <!--
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMM2HL7SKD"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);} gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LMM2HL7SKD');
   </script>
-  -->
 
-<!-- Optioneel: kleur van de browser UI -->
-<meta name="theme-color" content="#0f0f0f">
+  <!-- Optioneel GA4 via GTM: al geregeld hierboven -->
 
+  <!-- Browser UI kleur -->
+  <meta name="theme-color" content="#0f0f0f">
+
+  <!-- Favicons -->
   <link rel="icon" href="images/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
   <link rel="icon" type="image/png" href="/favicon.png">
 
-  <meta property="og:title" content="B‑Smart Services — Project Management & Support" />
-  <meta property="og:description" content="Clear, friendly and efficient support for projects, customers and operations." />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Freelance Project Manager & Virtual Assistant | B-Smart Services" />
+  <meta property="og:description" content="Freelance project manager and virtual assistant based in Sweden, offering clear, friendly and efficient support for projects, customers and operations." />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta property="og:image" content="images/logo.jpg" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
   
+  <!-- Styles -->
   <style>
     /* Links zwart i.p.v. blauw */
     a{ color: var(--ink); text-decoration: none; }
@@ -90,16 +86,16 @@
 
     :root{
       /* Pastel bee palette */
-      --bg:#779478;             /* zachte groen tint */
-      --card:#ffffff;           /* white */
-      --ink:#2b2b2b;            /* text dark */
-      --muted:#000208;          /* secondary text */
-      --bee:#ffe8a3;            /* pastel yellow */
-      --honey:#ffdf70;          /* accent hover */
-      --mint:#d9f2e6;           /* soft green‑blue */
-      --sky:#e6f1ff;            /* soft blue */
-      --border:#e8e6dd;         /* borders */
-      --brand:#1d1d1b;          /* logo/black */
+      --bg:#779478;
+      --card:#ffffff;
+      --ink:#2b2b2b;
+      --muted:#000208;
+      --bee:#ffe8a3;
+      --honey:#ffdf70;
+      --mint:#d9f2e6;
+      --sky:#e6f1ff;
+      --border:#e8e6dd;
+      --brand:#1d1d1b;
     }
     *{box-sizing:border-box}
     html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
@@ -230,20 +226,43 @@
     a:active, button:active, .btn:active, .iconbtn:active { transform: translateY(0); filter: brightness(0.98); box-shadow: none; }
   </style>
 
- <!-- Favicons -->
-<!-- Favicons -->
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<link rel="icon" href="favicon.ico?v=3" sizes="any">
+  <!-- Favicons (extra set) -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" href="favicon.ico?v=3" sizes="any">
 
+  <!-- PWA / Android -->
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0f0f0f">
 
-<!-- PWA / Android -->
-<link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#0f0f0f">
-
+  <!-- Organization / Local SEO + remote -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "B-Smart Services",
+    "url": "https://b-smart-services.com/",
+    "description": "Freelance project manager, virtual assistant and operations support, based in Lesjöfors, Värmland (Sweden) and working remotely.",
+    "email": "B-Smartservices@outlook.com",
+    "telephone": "+31645683664",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lesjöfors",
+      "addressRegion": "Värmland",
+      "addressCountry": "SE"
+    },
+    "areaServed": "Worldwide (remote)",
+    "founder": {
+      "@type": "Person",
+      "name": "Barbara Strick",
+      "jobTitle": "Freelance Project Manager & Virtual Assistant"
+    }
+  }
+  </script>
 </head>
+
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -251,9 +270,9 @@
 
   <header>
     <div class="container row">
-      <a class="brand" href="#top" aria-label="B‑Smart Services">
-        <img src="images/logo.png" alt="B‑Smart Services logo" />
-        <h1>B‑Smart Services</h1>
+      <a class="brand" href="#top" aria-label="B-Smart Services">
+        <img src="images/logo.png" alt="B-Smart Services logo" />
+        <h1>B-Smart Services</h1>
       </a>
       <nav aria-label="Primary">
         <a href="#services">Services</a>
@@ -270,7 +289,10 @@
         <div>
           <span class="bubble">Buzzing your company</span>
           <h2>Project management & general support that feels <em>light</em> and takes the <em>heavy</em> work off your plate.</h2>
-          <p>I help organizations with <strong>project management</strong>, <strong>customer management</strong> and <strong>operations support</strong>. Clear, friendly and efficient — so you can focus on the core.</p>
+          <p>
+            I help organizations with <strong>project management</strong>, <strong>customer management</strong> and <strong>operations support</strong>. 
+            Based in Lesjöfors, Värmland (Sweden), working fully remote as a freelance project manager and virtual assistant — clear, friendly and efficient, so you can focus on the core.
+          </p>
           <div class="cta">
             <a class="btn primary" href="#contact">Book an intro call</a>
             <a class="btn soft" href="#services">Explore services</a>
@@ -296,36 +318,36 @@
         <div class="cards">
           <article class="card">
             <h4>Project Management</h4>
-            <p>Structure, planning and progress control. I run projects end‑to‑end or strengthen your team temporarily.</p>
+            <p>Structure, planning and progress control. I run projects end-to-end or strengthen your team temporarily.</p>
             <ul class="list">
               <li>Roadmaps, scoping & risk management</li>
               <li>Stakeholder communication</li>
-              <li>Decision‑ready reporting</li>
+              <li>Decision-ready reporting</li>
               <p>I love bringing structure and clarity to complex projects. With a clear plan and a steady overview, I make sure things move forward — on time and in the right direction. Whether I’m leading a project from start to finish or joining an existing team, I focus on creating flow, transparency, and collaboration. I turn ideas into actionable roadmaps, keep an eye on scope and risks, and make sure everyone involved stays informed and aligned. My updates and reports are clear and practical, helping decision-makers move forward with confidence.</p>
             </ul>
             <img class="thumb" src="images/Structure and controle.png" alt="Structure and control"/>
           </article>
           <article class="card">
             <h4>General Support</h4>
-            <p>Operational help where needed: documentation, process improvement, scheduling, minute‑taking and admin support.</p>
+            <p>Operational help where needed: documentation, process improvement, scheduling, minute-taking and admin support.</p>
             <ul class="list">
               <li>Process & quality assurance</li>
               <li>Team coordination & workflows</li>
-              <li>Ad‑hoc support during peak load</li>
+              <li>Ad-hoc support during peak load</li>
               <p>I’m at my best when things need to get organized and kept on track. I provide hands-on operational support wherever it’s needed — from documentation and scheduling to process improvement, minute-taking, and general admin. I’m the person who keeps things running smoothly, especially when the pressure is on. I focus on process and quality assurance, team coordination, and creating efficient workflows. And when things get messy after a busy period, I’m there to bring structure back and make sure nothing gets lost in the aftermath.</p>
             </ul>
             <img class="thumb" src="images/logo.png" alt="projectmanager Barbara"/>
           </article>
           <article class="card">
             <h4>Customer Management</h4>
-            <p>Professional follow‑up on leads and customers so relationships grow and retention increases.</p>
+            <p>Professional follow-up on leads and customers so relationships grow and retention increases.</p>
             <ul class="list">
-              <li>CRM setup and clean‑up</li>
-              <li>Service SLAs & follow‑up cycles</li>
+              <li>CRM setup and clean-up</li>
+              <li>Service SLAs & follow-up cycles</li>
               <li>Customer feedback → actions</li>
               <p>I genuinely enjoy building lasting connections with people. For me, good customer management is about listening, understanding needs, and following up with care and consistency. I make sure every lead and client feels seen and supported — not just once, but throughout the entire relationship. I enjoy keeping things organized behind the scenes too: setting up and cleaning CRMs, shaping service follow-up cycles, and translating feedback into real improvements. It’s all about creating relationships that last — and making sure every customer interaction adds value on both sides.</p>
             </ul>
-            <img class="thumb" src="images/CRM.png" alt="CRM setup and clean‑up Service SLAs."/>
+            <img class="thumb" src="images/CRM.png" alt="CRM setup and clean-up Service SLAs."/>
           </article>
         </div>
       </div>
@@ -343,7 +365,7 @@
 
     <div class="strip">
       <div class="container row" style="gap:1rem;flex-wrap:wrap">
-        <div><strong>Why B‑Smart?</strong> Clear, responsive and to‑the‑point. No noise — just results.</div>
+        <div><strong>Why B-Smart?</strong> Clear, responsive and to-the-point. No noise — just results.</div>
         <div class="badge">Transparent rates</div>
       </div>
     </div>
@@ -353,14 +375,17 @@
         <div class="section-head"><h3>Approach</h3><span class="badge">Easy collaboration</span></div>
         <div class="cards">
           <article class="card">
-          <img class="thumb" src="images/project-planning.jpg" alt="project-planning"/>
-          <h4>1) Intro</h4><p>I listen to your goals and context, check scope and define success criteria.</p></article>
+            <img class="thumb" src="images/project-planning.jpg" alt="project-planning"/>
+            <h4>1) Intro</h4><p>I listen to your goals and context, check scope and define success criteria.</p>
+          </article>
           <article class="card">
-          <img class="thumb" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop" alt="Project plan and cadence board"/>
-          <h4>2) Plan & cadence</h4><p>A lightweight plan with clear milestones, regular updates and sharp risk signals.</p></article>
+            <img class="thumb" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop" alt="Project plan and cadence board"/>
+            <h4>2) Plan & cadence</h4><p>A lightweight plan with clear milestones, regular updates and sharp risk signals.</p>
+          </article>
           <article class="card">
-          <img class="thumb" src="images/Steps_For_A_Successful_Project_Handoff.png" alt="Steps_For_A_Successful_Project_Handoff"/>
-          <h4>3) Delivery</h4><p>I execute, keep everyone aligned and adjust based on data — not gut feeling.</p></article>
+            <img class="thumb" src="images/Steps_For_A_Successful_Project_Handoff.png" alt="Steps_For_A_Successful_Project_Handoff"/>
+            <h4>3) Delivery</h4><p>I execute, keep everyone aligned and adjust based on data — not gut feeling.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -373,7 +398,7 @@
 
         <form id="testiForm" class="testi-form" aria-labelledby="testiFormHeading">
           <h4 id="testiFormHeading" style="margin-top:0">Add your testimonial</h4>
-          <p style="margin-top:0;color:var(--muted)">Your testimonial will be saved as <strong>pending</strong> and appears after approval. (Optionally sent by email for follow‑up.)</p>
+          <p style="margin-top:0;color:var(--muted)">Your testimonial will be saved as <strong>pending</strong> and appears after approval. (Optionally sent by email for follow-up.)</p>
           <div class="grid-2">
             <div>
               <label for="tName">Name</label>
@@ -390,7 +415,7 @@
           </div>
           <div class="grid-2" style="align-items:center;margin-top:.6rem">
             <div>
-              <label for="tEmail">Email <span style="color:var(--muted)">(optional, for follow‑up)</span></label>
+              <label for="tEmail">Email <span style="color:var(--muted)">(optional, for follow-up)</span></label>
               <input id="tEmail" name="email" type="email" placeholder="you@company.com" />
             </div>
             <button class="btn primary" type="submit" style="justify-self:start">Submit</button>
@@ -505,7 +530,7 @@
 
   <footer>
     <div class="container row" style="gap:1rem;flex-wrap:wrap">
-      <div>© <span id="year"></span> B‑Smart Services</div>
+      <div>© <span id="year"></span> B-Smart Services</div>
       <div>© <a href="https://nico-on-point-services.com/index-en.html" target="_blank" rel="noopener">Webdesign: Nico on Point services 2025</a></div>
       <div style="color:var(--muted)">Privacy policy on request • Company/VAT on quote</div>
     </div>
@@ -515,21 +540,14 @@
     // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // ============================
-    // Config
-    // ============================
     const API_BASE = 'https://bsmart-testimonials.b-smartservices.workers.dev';
     const FORMSPREE = 'https://formspree.io/f/mpwyeywb';
 
-    // Escape HTML
     function escapeHtml(s){
       const map = { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' };
       return String(s||'').replace(/[&<>"]/g, ch => map[ch] || ch);
     }
 
-    // ============================
-    // Testimonials: fetch & render
-    // ============================
     async function fetchTestimonials(){
       try{
         const res = await fetch(`${API_BASE}/api/testimonials`);
@@ -546,39 +564,42 @@
       });
     }
 
-    // ============================
-    // Testimonial submit → Worker + mail
-    // ============================
     const form = document.getElementById('testiForm');
     const note = document.getElementById('testiNote');
 
     form.addEventListener('submit', async (e)=>{
       e.preventDefault();
       const fd = new FormData(form);
-      if (fd.get('_gotcha')) { return; } // honeypot
+      if (fd.get('_gotcha')) { return; }
       const data = Object.fromEntries(fd.entries());
 
-      // 1) Save to Worker (pending)
       let approveUrl = '';
       try{
-        const res = await fetch(`${API_BASE}/api/testimonials`, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data)});
+        const res = await fetch(`${API_BASE}/api/testimonials`, {
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify(data)
+        });
         const out = await res.json();
         if(!res.ok || !out.ok){ throw new Error(out.error||'failed'); }
         approveUrl = out.approveUrl || '';
-      }catch(err){ note.textContent = 'Could not submit right now. Please try later.'; return; }
+      }catch(err){
+        note.textContent = 'Could not submit right now. Please try later.';
+        return;
+      }
 
-      // 2) Optional: email via Formspree (so the approve link lands in your inbox)
       try{
-        await fetch(FORMSPREE, {method:'POST', headers:{'Accept':'application/json','Content-Type':'application/json'}, body:JSON.stringify({...data, approveUrl})});
+        await fetch(FORMSPREE, {
+          method:'POST',
+          headers:{'Accept':'application/json','Content-Type':'application/json'},
+          body:JSON.stringify({...data, approveUrl})
+        });
       }catch{}
 
       note.textContent = 'Thanks! Your testimonial is pending approval.';
       form.reset();
     });
 
-    // ============================
-    // Contact form AJAX helper
-    // ============================
     const cform = document.getElementById('contactForm');
     const cnote = document.getElementById('contactNote');
     cform.addEventListener('submit', async (e)=>{
@@ -587,13 +608,22 @@
       if (fd.get('_gotcha')) { return; }
       const data = Object.fromEntries(fd.entries());
       try{
-        const res = await fetch(FORMSPREE, {method:'POST', headers:{'Accept':'application/json','Content-Type':'application/json'}, body:JSON.stringify(data)});
-        if(res.ok){cnote.textContent='Sent! We will get back to you shortly.'; cform.reset();}
-        else{cnote.textContent='Sent, but please verify your form endpoint.'}
-      }catch(err){cnote.textContent='Could not send. Please check your internet connection or form endpoint.'}
+        const res = await fetch(FORMSPREE, {
+          method:'POST',
+          headers:{'Accept':'application/json','Content-Type':'application/json'},
+          body:JSON.stringify(data)
+        });
+        if(res.ok){
+          cnote.textContent='Sent! We will get back to you shortly.';
+          cform.reset();
+        } else {
+          cnote.textContent='Sent, but please verify your form endpoint.';
+        }
+      }catch(err){
+        cnote.textContent='Could not send. Please check your internet connection or form endpoint.';
+      }
     });
 
-    // Init
     fetchTestimonials();
   </script>
 </body>
