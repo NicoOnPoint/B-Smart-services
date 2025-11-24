@@ -11,7 +11,7 @@
 
     <image:image>
       <image:loc>https://b-smart-services.com/images/Barbara.jpg</image:loc>
-      <image:title>Barbara Strick — friendly & professional</image:title>
+     <image:title>Barbara Strick — friendly &amp; professional</image:title>
     </image:image>
     <image:image>
       <image:loc>https://b-smart-services.com/images/logo-bsmart.png</image:loc>
