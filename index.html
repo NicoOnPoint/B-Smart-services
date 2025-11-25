@@ -12,10 +12,13 @@
   <!-- Google Search Console -->
   <meta name="google-site-verification" content="GLblCco-dudSatoI_ZtoS1WngxFK5hlY3T4fWjDmg84" />
 
-  <!-- Consent Mode v2 defaults (EU-friendly) – MUST be before GTM -->
+  <!-- Google Analytics 4 + Consent Mode v2 (EU friendly) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-25KNCK4NK0"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+
+    // Consent Mode v2 defaults
     gtag('consent', 'default', {
       'ad_storage': 'denied',
       'analytics_storage': 'denied',
@@ -23,20 +26,11 @@
       'ad_personalization': 'denied',
       'wait_for_update': 500
     });
+
+    // GA4 config
+    gtag('js', new Date());
+    gtag('config', 'G-25KNCK4NK0');
   </script>
-
-  
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-25KNCK4NK0"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-25KNCK4NK0');
-</script>
-  <!-- End Google Tag Manager -->
 
   <!-- Browser UI colour -->
   <meta name="theme-color" content="#0f0f0f">
@@ -111,7 +105,7 @@
     .hero h2{font-family:"Playfair Display",serif;font-size:clamp(2.1rem,4vw,3rem);margin:.6rem 0 1rem}
     .hero p{color:var(--muted);max-width:60ch}
     .cta{display:flex;gap:.8rem;margin-top:1.2rem;flex-wrap:wrap}
-    .btn{appearance:none;border:1px solid #efe7d3c5;background:#fff;border-radius:12px;padding:.9rem 1.1rem;font-weight:700}
+    .btn{appearance:none;border:1px solid #efe7d3c5;background:#fff;border-radius:12px;padding:.9rem 1.1rem;font-weight:700;cursor:pointer}
     .btn.primary{background:#fdf79b;color:#000;border-color:#000}
     .btn.soft{background:#ffffff}
     .btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(0,0,0,.06)}
@@ -253,6 +247,57 @@
         font-size: 1.3rem;
       }
     }
+
+    /* Cookie / consent banner */
+    .cookie-banner {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 9998;
+      display: none; /* wordt via JS op block gezet als nodig */
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(4px);
+    }
+    .cookie-inner {
+      max-width: 960px;
+      margin: 0 auto 1rem auto;
+      background: #fffef7;
+      border-radius: 16px;
+      border: 1px solid #e6dfc5;
+      padding: 1rem 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .8rem 1rem;
+      align-items: center;
+      box-shadow: 0 -8px 24px rgba(0,0,0,0.15);
+    }
+    .cookie-inner p {
+      margin: 0;
+      flex: 1 1 220px;
+      font-size: .9rem;
+      color: var(--muted);
+    }
+    .cookie-actions {
+      display: flex;
+      gap: .6rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .cookie-actions .btn {
+      font-size: .85rem;
+      padding: .55rem .9rem;
+    }
+
+    @media (max-width: 640px) {
+      .cookie-inner {
+        margin: 0.5rem;
+      }
+      .cookie-actions {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
   </style>
 
   <!-- Favicons (extra set) -->
@@ -319,13 +364,19 @@
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5V6GSD"
-            height="0" width="0"
-            style="display:none;visibility:hidden"></iframe>
-  </noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <!-- Cookie / consent banner -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+    <div class="cookie-inner">
+      <p>
+        I use cookies for basic site functionality and to understand how the website is used.
+        You can choose whether to allow anonymous analytics cookies.
+      </p>
+      <div class="cookie-actions">
+        <button type="button" class="btn soft" id="cookieDecline">Only necessary</button>
+        <button type="button" class="btn primary" id="cookieAccept">Accept analytics</button>
+      </div>
+    </div>
+  </div>
 
   <header>
     <div class="container row">
@@ -431,7 +482,7 @@
       <div class="container">
         <div class="qcol split">
           <span class="pill"><strong>Email:</strong> <a href="mailto:B-Smartservices@outlook.com">B-Smartservices@outlook.com</a></span>
-          <span class="pill"><strongPhone:</strong> <a href="tel:+31645683664">+31 6 456 836 64</a> <span style="color:var(--muted)">(Free intake call)</span></span>
+          <span class="pill"><strong>Phone:</strong> <a href="tel:+31645683664">+31 6 456 836 64</a> <span style="color:var(--muted)">(Free intake call)</span></span>
           <span class="pill"><strong>LinkedIn:</strong> <a class="iconbtn" href="https://www.linkedin.com/in/barbara-strick-1bab8321a/" data-linkedin>LinkedIn Barbara</a></span>
         </div>
       </div>
@@ -706,6 +757,55 @@
     });
 
     fetchTestimonials();
+
+    // --- Cookie / consent banner logic ---
+    (function(){
+      const banner = document.getElementById('cookieBanner');
+      const btnAccept = document.getElementById('cookieAccept');
+      const btnDecline = document.getElementById('cookieDecline');
+      if (!banner || !btnAccept || !btnDecline) return;
+
+      const STORAGE_KEY = 'bsmart_consent';
+
+      function hideBanner() {
+        banner.style.display = 'none';
+      }
+
+      function grantConsent() {
+        localStorage.setItem(STORAGE_KEY, 'granted');
+        if (typeof gtag === 'function') {
+          gtag('consent', 'update', {
+            'ad_storage': 'granted',
+            'analytics_storage': 'granted',
+            'ad_user_data': 'granted',
+            'ad_personalization': 'granted'
+          });
+        }
+        hideBanner();
+      }
+
+      function denyConsent() {
+        localStorage.setItem(STORAGE_KEY, 'denied');
+        // defaults blijven 'denied', dus geen update nodig
+        hideBanner();
+      }
+
+      const stored = localStorage.getItem(STORAGE_KEY);
+
+      if (stored === 'granted') {
+        // Gebruiker gaf eerder toestemming: direct grant + geen banner tonen
+        grantConsent();
+      } else if (stored === 'denied') {
+        // Gebruiker heeft eerder geweigerd: banner niet meer tonen
+        hideBanner();
+      } else {
+        // Nog geen keuze: banner tonen
+        banner.style.display = 'block';
+      }
+
+      btnAccept.addEventListener('click', grantConsent);
+      btnDecline.addEventListener('click', denyConsent);
+    })();
   </script>
 
   <!-- Floating WhatsApp bubble -->
