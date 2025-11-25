@@ -6,23 +6,13 @@
 
   <!-- SEO title & description -->
   <title>B-Smart Services – Remote Project Manager & Virtual Assistant (Sweden)</title>
-<link rel="canonical" href="https://b-smart-services.com/index.html">
+  <link rel="canonical" href="https://b-smart-services.com/index.html">
   <meta name="description" content="B-Smart Services – remote freelance project manager, virtual assistant and operations support, based in Lesjöfors, Värmland (Sweden). Clear, friendly and efficient support in project management, customer management, operations support and admin tasks for organizations across Europe.">
 
   <!-- Google Search Console -->
   <meta name="google-site-verification" content="GLblCco-dudSatoI_ZtoS1WngxFK5hlY3T4fWjDmg84" />
 
-  <!-- Google Tag Manager -->
-  <script>
-    (function(w,d,s,l,i){
-      w[l]=w[l]||[]; w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-      var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
-      j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl; f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5V6GSD');
-  </script>
-  <!-- End Google Tag Manager -->
-
-  <!-- Consent Mode v2 defaults (EU-friendly). -->
+  <!-- Consent Mode v2 defaults (EU-friendly) – MUST be before GTM -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -35,14 +25,18 @@
     });
   </script>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMM2HL7SKD"></script>
+  <!-- Google Tag Manager -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-LMM2HL7SKD');
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true;
+      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5V6GSD');
   </script>
+  <!-- End Google Tag Manager -->
 
   <!-- Browser UI colour -->
   <meta name="theme-color" content="#0f0f0f">
@@ -326,7 +320,11 @@
 
 <body>
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5V6GSD"
+            height="0" width="0"
+            style="display:none;visibility:hidden"></iframe>
+  </noscript>
   <!-- End Google Tag Manager (noscript) -->
 
   <header>
@@ -433,7 +431,7 @@
       <div class="container">
         <div class="qcol split">
           <span class="pill"><strong>Email:</strong> <a href="mailto:B-Smartservices@outlook.com">B-Smartservices@outlook.com</a></span>
-          <span class="pill"><strong>Phone:</strong> <a href="tel:+31645683664">+31 6 456 836 64</a> <span style="color:var(--muted)">(Free intake call)</span></span>
+          <span class="pill"><strongPhone:</strong> <a href="tel:+31645683664">+31 6 456 836 64</a> <span style="color:var(--muted)">(Free intake call)</span></span>
           <span class="pill"><strong>LinkedIn:</strong> <a class="iconbtn" href="https://www.linkedin.com/in/barbara-strick-1bab8321a/" data-linkedin>LinkedIn Barbara</a></span>
         </div>
       </div>
