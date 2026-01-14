@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>More details – B-Smart Services</title>
+  <link rel="canonical" href="https://b-smart-services.com/extra.html">
+
+  <!-- Fonts (zelfde als index) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+  <style>
+     /* Links zwart i.p.v. blauw */
+    a{ color: var(--ink); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    /* Navigatie-hoverlijn zwart */
+    nav a:hover{ border-color: var(--ink); }
+
+    /* Primary-knop: geel/zwart */
+    .btn.primary{ background: #fdf79b; color: #1d1d1b; border-color: var(--brand); }
+
+    /* Icon-knoppen donker */
+    .iconbtn{ color: var(--ink); }
+    .iconbtn:hover{ color: var(--ink); }
+
+    /* Quickbar-links donker */
+    .quickbar a{ color: var(--ink); }
+
+    :root{
+      /* Pastel bee palette */
+      --bg:#779478;
+      --card:#ffffff;
+      --ink:#2b2b2b;
+      --muted:#000208;
+      --bee:#ffe8a3;
+      --honey:#ffdf70;
+      --mint:#d9f2e6;
+      --sky:#e6f1ff;
+      --border:#e8e6dd;
+      --brand:#1d1d1b;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    img{max-width:100%;height:auto}
+
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--border)}
+    .container{max-width:1100px;margin:0 auto;padding:0 1.2rem}
+    .row{display:flex;align-items:center;justify-content:space-between}
+
+    .brand{display:flex;align-items:center;gap:.9rem;padding:.6rem 0}
+    .brand img{width:56px;height:56px;object-fit:contain}
+    .brand h1{font-family:"Playfair Display",serif;font-size:1.35rem;margin:0;letter-spacing:.2px}
+
+    nav a{display:inline-block;margin:0 .7rem;padding:.9rem .2rem;border-bottom:2px solid transparent;color:#343434;font-weight:600}
+    nav a:hover{border-color:#000}
+
+    .hero{padding:4rem 0 3rem;}
+    .hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center}
+    .bubble{background:linear-gradient(180deg,var(--bee),#fff7d7);border:1px solid #f6e8b3;border-radius:22px;padding:1rem 1.1rem;display:inline-block;font-weight:600}
+    .hero h2{font-family:"Playfair Display",serif;font-size:clamp(2.1rem,4vw,3rem);margin:.6rem 0 1rem}
+    .hero p{color:var(--muted);max-width:60ch}
+    .cta{display:flex;gap:.8rem;margin-top:1.2rem;flex-wrap:wrap}
+    .btn{appearance:none;border:1px solid #efe7d3c5;background:#fff;border-radius:12px;padding:.9rem 1.1rem;font-weight:700;cursor:pointer}
+    .btn.primary{background:#fdf79b;color:#000;border-color:#000}
+    .btn.soft{background:#ffffff}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(0,0,0,.06)}
+
+    section{padding:3rem 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:1rem}
+    .section-head h3{font-size:1.5rem;margin:0}
+    .badge{display:inline-block;background:var(--mint);border:1px solid #bfe6d3;border-radius:999px;padding:.25rem .65rem;font-size:.8rem;font-weight:700}
+
+    .cards{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 kolommen */
+  gap: 1rem;
+}
+
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.2rem;box-shadow:0 10px 24px rgba(0,0,0,.04)}
+    .card h4{margin:.1rem 0 .4rem;font-size:1.1rem}
+    .card p{color:var(--muted)}
+    .card .thumb{width:100%;border-radius:12px;margin-bottom:.6rem;display:block}
+    .list{padding-left:1.1rem}
+
+    .strip{background:linear-gradient(90deg,var(--bee),var(--sky));border-top:1px solid #efe7c8;border-bottom:1px solid #dfe9ff}
+    .strip .container{padding:1rem 1.2rem}
+
+    /* Testimonials */
+    .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .testi{background:#fff;border:1px solid var(--border);border-radius:16px;padding:1rem;position:relative}
+    .testi .quote{font-size:2rem;position:absolute;top:.4rem;left:.8rem;opacity:.15}
+    .testi p{margin:.2rem 0 .6rem}
+    .testi .who{color:var(--muted);font-size:.95rem}
+
+    .testi-form{margin-top:1rem;background:#fff;border:1px solid var(--border);border-radius:16px;padding:1rem}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+    input, textarea{width:100%;padding:.8rem;border-radius:10px;border:1px solid #dad7cc;background:#fff}
+    textarea{min-height:110px}
+    label{font-weight:600;font-size:.9rem}
+
+    .socials{display:flex;gap:.6rem}
+    .iconbtn{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--border);background:#fff;padding:.6rem .75rem;border-radius:12px;font-weight:700}
+    .iconbtn:hover{box-shadow:0 6px 14px rgba(0,0,0,.06)}
+
+    /* Extras */
+    .hero .hero-photo{border-radius:16px;display:block;margin:0 auto 0.6rem}
+    .logo-row{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+    .logo-row img{height:46px;opacity:.95;filter:grayscale(10%)}
+
+    /* Centered contact form + quick details bar */
+    #contact .cards{display:flex;justify-content:center}
+    #contact .cards .card{max-width:720px;width:100%}
+    .quickbar{background:linear-gradient(90deg,var(--mint),#fff);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1rem 0}
+    .quickbar .qcol{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+    .quickbar a{font-weight:700}
+    .quickbar .split{display:flex;gap:1.2rem;flex-wrap:wrap}
+    .quickbar .pill{display:inline-block;background:#fff;border:1px solid var(--border);border-radius:999px;padding:.35rem .75rem}
+
+    @media (max-width: 980px){
+      .hero-inner{grid-template-columns:1fr}
+      .cards,.gallery{grid-template-columns:repeat(2,1fr)}
+      .testi-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width: 560px){
+      nav{display:none}
+      .cards,.gallery,.testi-grid{grid-template-columns:1fr}
+    }
+
+    /* Force black links site-wide */
+    a, a:link, a:visited, a:hover, a:active, a:focus { color:#000; text-decoration:none; }
+    a:hover { text-decoration: underline; }
+    nav a, nav a:visited { border-color:#000; }
+    nav a:hover { border-color:#000; }
+
+    /* Primary button text black */
+    .btn.primary,
+    .btn.primary:link,
+    .btn.primary:visited,
+    .btn.primary:hover,
+    .btn.primary:active,
+    a.btn.primary { color: #000 !important; }
+
+    /* Footer bar */
+    footer{
+      background: var(--bg);
+      padding: 18px 0;
+      border-top: 2px solid #6b856c;
+    }
+    footer .container.row{ align-items:center; min-height:48px; }
+
+    /* Service headings as yellow badge */
+    .cards .card h4{
+      display:inline-block;background:var(--bee);color:var(--brand);border:1px solid var(--brand);
+      border-radius:10px;padding:.35rem .6rem;line-height:1.1;margin:.1rem 0 .6rem;font-weight:700;
+    }
+    /* Quickbar pills */
+    .quickbar .pill { background: var(--bee); border: 1px solid var(--brand); color: var(--brand); font-weight: 600; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+    .quickbar .pill:hover { background: var(--honey); text-decoration: none; transform: translateY(-1px); transition: all 0.15s ease-in-out; }
+
+    /* Hero buttons */
+    .hero .btn.primary{ background: var(--bee); color: var(--brand) !important; border: 1px solid var(--brand); }
+    .hero .btn.primary:hover{ background: var(--honey); transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,.08); }
+    .hero .btn.soft{ background: var(--bee); color: var(--brand); border: 1px solid var(--brand); }
+    .hero .btn.soft:hover{ background: var(--honey); }
+
+    /* Social buttons */
+    .hero .socials .iconbtn{ background: var(--bee); color: var(--brand); border: 1px solid var(--brand); font-weight: 700; }
+    .hero .socials .iconbtn:hover{ background: var(--honey); text-decoration: none; transform: translateY(-1px); box-shadow: 0 6px 14px rgba(0,0,0,0.06); }
+
+    /* Universal hover */
+    a, button, .btn, .iconbtn { transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease; display: inline-block; }
+    a:hover, button:hover, .btn:hover, .iconbtn:hover { transform: translateY(-2px) scale(1.03); filter: brightness(1.05); text-decoration: none; box-shadow: 0 6px 14px rgba(0,0,0,0.08); }
+    a:active, button:active, .btn:active, .iconbtn:active { transform: translateY(0); filter: brightness(0.98); box-shadow: none; }
+
+    /* Floating WhatsApp bubble */
+    .wp-float {
+      position: fixed;
+      right: 1.25rem;
+      bottom: 1.25rem;
+      width: 3.2rem;
+      height: 3.2rem;
+      border-radius: 50%;
+      background: #25d366; /* WhatsApp-groen */
+      color: #053114;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      text-decoration: none;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+      z-index: 9999;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+    }
+
+    .wp-float:hover {
+      transform: translateY(-1px) scale(1.03);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+      opacity: 0.95;
+    }
+
+    @media (max-width: 600px) {
+      .wp-float {
+        right: 0.9rem;
+        bottom: 0.9rem;
+        width: 2.8rem;
+        height: 2.8rem;
+        font-size: 1.3rem;
+      }
+    }
+
+    /* Cookie / consent banner */
+    .cookie-banner {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 9998;
+      display: none; /* wordt via JS op block gezet als nodig */
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(4px);
+    }
+    .cookie-inner {
+      max-width: 960px;
+      margin: 0 auto 1rem auto;
+      background: #fffef7;
+      border-radius: 16px;
+      border: 1px solid #e6dfc5;
+      padding: 1rem 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .8rem 1rem;
+      align-items: center;
+      box-shadow: 0 -8px 24px rgba(0,0,0,0.15);
+    }
+    .cookie-inner p {
+      margin: 0;
+      flex: 1 1 220px;
+      font-size: .9rem;
+      color: var(--muted);
+    }
+    .cookie-actions {
+      display: flex;
+      gap: .6rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .cookie-actions .btn {
+      font-size: .85rem;
+      padding: .55rem .9rem;
+    }
+
+    @media (max-width: 640px) {
+      .cookie-inner {
+        margin: 0.5rem;
+      }
+      .cookie-actions {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+    /* Checklist with check icons */
+.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0.6rem 0 0;
+}
+
+.checklist li {
+  position: relative;
+  padding-left: 1.8rem;
+  margin-bottom: 0.45rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+/* Circle check icon */
+.checklist li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  background: var(--bee);
+  border: 1px solid var(--brand);
+  color: var(--brand);
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Intro text above checklist */
+.card-intro {
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+/* Value / benefits section */
+.value-section {
+  margin-top: 3rem;
+  padding: 3rem 0;
+  background: linear-gradient(180deg, #ffffff, #fffdf5);
+  border-radius: 24px;
+}
+
+.value-title {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  text-align: center;
+}
+
+.value-item {
+  padding: 1.5rem 1.2rem;
+}
+
+.value-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 0.6rem;
+  border-radius: 50%;
+  background: var(--bee);
+  border: 1px solid var(--brand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.value-item h4 {
+  margin: 0.4rem 0 0.3rem;
+  font-size: 1.1rem;
+}
+
+.value-item p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+  .value-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Split card: text left, image right */
+.card-split{
+  display:grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.card-media .thumb{
+  margin: 0;          /* haalt je oude bottom spacing weg */
+  border-radius: 14px;
+}
+
+/* Mobile: image under text */
+@media (max-width: 900px){
+  .card-split{
+    grid-template-columns: 1fr;
+  }
+}
+/* Let this card take the full row (2 columns) */
+.card-wide{
+  grid-column: span 2;
+}
+
+
+
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container row">
+      <a class="brand" href="index.html#top" aria-label="B-Smart Services">
+        <img src="images/logo.png" alt="B-Smart Services logo" />
+        <h1>B-Smart Services</h1>
+      </a>
+
+      <!-- Let op: anchors moeten naar index.html#... -->
+     <nav aria-label="Primary">
+  <a href="index.html#services">Services</a>
+  <a href="index.html#approach">Approach</a>
+  <a href="index.html#testimonials">Testimonials</a>
+  <a href="extra.html">More info</a>
+  <a href="index.html#contact">Contact</a>
+</nav>
+
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <span class="bubble">info & details</span>
+        <h2>What can I do for you</h2>
+        <p style="max-width:60ch;color:var(--muted)">
+          Discover how I can support your business with professional and reliable services.
+        </p>
+
+        <div class="cta">
+          <a class="btn primary" href="index.html#contact">Book an intro call</a>
+          <a class="btn soft" href="index.html">Back to home</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h3>Content section</h3>
+          <span class="badge">Details:</span>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+  <h4>Office Management</h4>
+
+  <p class="card-intro">
+    Keep agendas, documents and daily practical matters organized.
+  </p>
+
+  <ul class="checklist">
+    <li>Calendar and appointment management</li>
+    <li>Document management and archiving</li>
+    <li>Correspondence and communication</li>
+    <li>Organization of practical matters</li>
+  </ul>
+            <img class="thumb" src="images/office_management.png" alt="office_management image"/>
+          </article>
+
+          <article class="card">
+  <h4>Administration & Planning</h4>
+
+  <p class="card-intro">
+    Ensure financial administration stays up-to-date and planning remains clear.
+  </p>
+
+  <ul class="checklist">
+    <li>Invoice processing and verification</li>
+    <li>Accounts payable management</li>
+    <li>Planning and prioritization</li>
+    <li>Reports and overviews</li>
+  </ul>
+            <img class="thumb" src="images/CRM_1.png" alt="CRM systems image"/>
+          </article>
+
+          <article class="card">
+  <h4>Organization & Coordination</h4>
+
+  <p class="card-intro">
+    Monitor processes and ensure commitments are followed through.
+  </p>
+
+  <ul class="checklist">
+    <li>Process monitoring and follow-up</li>
+    <li>Internal and external coordination</li>
+    <li>Organizing meetings</li>
+    <li>Progress tracking
+            <img class="thumb" src="images/organitation_coordination.png" alt="Organisation & coördination image"/>
+          </article>
+
+          <article class="card">
+  <h4>Back Office Support</h4>
+
+  <p class="card-intro">
+    Keep systems, customer files and orders current and organized.
+  </p>
+
+  <ul class="checklist">
+    <li>CRM management and data quality</li>
+    <li>Maintaining customer files</li>
+    <li>Order and task management</li>
+    <li>System maintenance</li>
+  </ul>
+            <img class="thumb" src="images/backoffice.png" alt="Back office image"/>
+          </article>
+
+          <article class="card card-wide">
+  <div class="card-split">
+    <div class="card-text">
+      <h4>Front Office & Client Relations</h4>
+
+      <p class="card-intro">
+        Support your sales flow and keep client communication smooth and professional.
+      </p>
+
+      <ul class="checklist">
+        <li>Lead follow-up and outbound contact</li>
+        <li>Client inquiries and first-line support</li>
+        <li>CRM updates and pipeline tracking</li>
+        <li>Meeting booking and sales coordination</li>
+      </ul>
+    </div>
+
+    <div class="card-media">
+      <img class="thumb" src="images/front_office_client_relations.png"
+           alt="Front office and client relationship support"/>
+    </div>
+  </div>
+</article>
+
+
+        </div>
+      </div>
+    </section>
+    <section class="value-section">
+  <div class="container">
+    <h3 class="value-title">What does this deliver for you?</h3>
+
+    <div class="value-grid">
+      <div class="value-item">
+        <div class="value-icon">🕒</div>
+        <h4>More time</h4>
+        <p>Focus on what really matters for your business.</p>
+      </div>
+
+      <div class="value-item">
+        <div class="value-icon">🎯</div>
+        <h4>More clarity</h4>
+        <p>Structured processes and clear administration.</p>
+      </div>
+
+      <div class="value-item">
+        <div class="value-icon">✔️</div>
+        <h4>Less stress</h4>
+        <p>Peace and certainty that everything is well organized.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <footer>
+    <div class="container row" style="gap:1rem;flex-wrap:wrap">
+      <div>© <span id="year"></span> B-Smart Services</div>
+      <div>© <a href="https://nico-on-point-webdesign.com/" target="_blank" rel="noopener">Webdesign: Nico on Point webdesign 2025</a></div>
+      <div style="color:var(--muted)">Privacy policy on request • Company/VAT on quote</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
