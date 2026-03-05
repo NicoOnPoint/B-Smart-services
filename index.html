@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- SEO title & description -->
-  <title>B-Smart Services – Remote Project Manager & Virtual Assistant (Sweden)</title>
+  <title>B-Smart Services – Operations Support Specialist, Project Manager & VA</title>
   <link rel="canonical" href="https://b-smart-services.com/index.html">
-  <meta name="description" content="B-Smart Services – remote freelance project manager, virtual assistant and operations support, based in Lesjöfors, Värmland (Sweden). Clear, friendly and efficient support in project management, customer management, operations support and admin tasks for organizations across Europe.">
+  <meta name="description" content="Remote operations support specialist for entrepreneurs and small teams. Project management assistant, virtual assistant operations and business operations support across Europe from Lesjöfors, Sweden.">
 
   <!-- Google Search Console -->
   <meta name="google-site-verification" content="GLblCco-dudSatoI_ZtoS1WngxFK5hlY3T4fWjDmg84" />
@@ -41,8 +41,8 @@
   <link rel="icon" type="image/png" href="/favicon.png">
 
   <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="B-Smart Services – Remote Project Manager & Virtual Assistant (Sweden)" />
-  <meta property="og:description" content="Remote freelance project manager and virtual assistant based in Sweden. Clear, friendly and efficient support for projects, customers and operations." />
+  <meta property="og:title" content="B-Smart Services – Operations Support Specialist, Project Manager & VA" />
+  <meta property="og:description" content="Remote operations support specialist for entrepreneurs and small teams. Practical project management, virtual assistant and business operations support across Europe." />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta property="og:image" content="images/logo.jpg" />
@@ -117,6 +117,10 @@
 
     .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
     .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.2rem;box-shadow:0 10px 24px rgba(0,0,0,.04)}
+    .who-help-top{display:block}
+    .who-help-media{padding:.35rem;overflow:hidden}
+    .who-help-media img{width:100%;height:auto;object-fit:contain;border-radius:12px;display:block}
+    .who-help-story{margin-top:1rem}
     .card h4{margin:.1rem 0 .4rem;font-size:1.1rem}
     .card p{color:var(--muted)}
     .card .thumb{width:100%;border-radius:12px;margin-bottom:.6rem;display:block}
@@ -189,9 +193,44 @@
     footer .container.row{ align-items:center; min-height:48px; }
 
     /* Service headings as yellow badge */
-    .cards .card h4{
-      display:inline-block;background:var(--bee);color:var(--brand);border:1px solid var(--brand);
-      border-radius:10px;padding:.35rem .6rem;line-height:1.1;margin:.1rem 0 .6rem;font-weight:700;
+    #services .cards .card h4{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      width:100%;
+      min-height:3.5rem;
+      background:var(--bee);
+      color:var(--brand);
+      border:1px solid var(--brand);
+      border-radius:10px;
+      padding:.35rem .7rem;
+      line-height:1.2;
+      margin:.1rem 0 .6rem;
+      font-weight:700;
+      box-sizing:border-box;
+    }
+    #offer-highlights .cards .card h4{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      width:100%;
+      min-height:3.5rem;
+      background:var(--bee);
+      color:var(--brand);
+      border:1px solid var(--brand);
+      border-radius:10px;
+      padding:.35rem .7rem;
+      line-height:1.2;
+      margin:.1rem 0 .6rem;
+      font-weight:700;
+      box-sizing:border-box;
+    }
+    #offer-highlights .cards .card .badge{
+      display:table;
+      margin:0 auto;
+      text-align:center;
     }
     /* Quickbar pills */
     .quickbar .pill { background: var(--bee); border: 1px solid var(--brand); color: var(--brand); font-weight: 600; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
@@ -470,6 +509,8 @@
       </a>
       <nav aria-label="Primary">
   <a href="#services">Services</a>
+  <a href="#who-i-help">Who I help</a>
+  <a href="#pricing">Pricing</a>
   <a href="#approach">Approach</a>
   <a href="#testimonials">Testimonials</a>
   <a href="extra.html">More info & details</a>
@@ -484,16 +525,16 @@
       <div class="container hero-inner">
         <div>
           <span class="bubble">Buzzing your company</span>
-          <h2>Project management & general support that feels <em>light</em> and takes the <em>heavy</em> work off your plate.</h2>
+          <h2>Too many tasks and not enough time? I keep your operations structured, your projects on track and your workload under control.</h2>
           <p><strong>Remote project manager • Virtual assistant • Operations support •</strong></p>
           <p>
-            I help organizations with <strong>project management</strong>, <strong>customer management</strong> and
-            <strong>operations support</strong>. I am working fully 
-            <strong>remote across Europe</strong> as a freelance project manager and virtual assistant – clear, friendly and efficient,
-            so you can focus on your core business.
+            I support <strong>entrepreneurs</strong>, <strong>small teams</strong>, <strong>consultants</strong> and
+            <strong>growing startups</strong> with practical <strong>project management</strong>, <strong>customer management</strong> and
+            <strong>operations support</strong>. As an <strong>Operations Support Specialist</strong>, I work fully remote across Europe:
+            clear, hands-on and reliable, so you can focus on your core business.
           </p>
           <div class="cta">
-            <a class="btn primary" href="#contact">Book an intro call</a>
+            <a class="btn primary" href="#contact">Book a discovery call</a>
             <a class="btn soft" href="#services">Explore services</a>
             <a class="btn soft" href="extra.html">More details</a>
           </div>
@@ -535,7 +576,7 @@
 
     <!-- CTA apart -->
     <div class="value-cta">
-      <a class="btn primary" href="#contact">Book an intro call</a>
+      <a class="btn primary" href="#contact">Book a discovery call</a>
       <a class="btn primary" href="#services">Explore services</a>
       <a class="btn primary" href="extra.html">Explore info & details</a>
     </div>
@@ -543,6 +584,36 @@
 </section>
 
 
+
+    <section id="who-i-help">
+      <div class="container">
+        <div class="section-head">
+          <h3>Who I help</h3>
+          <span class="badge">Focused support for busy teams</span>
+        </div>
+        <div class="who-help-top">
+          <article class="card who-help-media">
+            <img src="images/best-fit-clients.png" alt="Who I help visual overview for best fit clients" />
+          </article>
+        </div>
+        <article class="card who-help-story">
+            <h4>Helping busy entrepreneurs and growing teams stay organized and in control</h4>
+            <p>Many entrepreneurs, consultants and small teams reach a point where daily operations start taking too much time. Administrative tasks, project coordination and internal organization can quickly pile up and distract from the work that actually drives the business forward.</p>
+            <p>That is where remote operations support and virtual assistant services can make a real difference.</p>
+            <p>At B-Smart Services I support entrepreneurs, startups, consultants and project managers who need reliable help with operational tasks, project coordination and administrative workflows. Instead of hiring a full-time employee, businesses can benefit from flexible remote support that keeps projects moving and operations structured.</p>
+            <p>My work focuses on helping organizations that are:</p>
+            <ul class="list">
+              <li>growing and scaling their operations</li>
+              <li>managing multiple projects at the same time</li>
+              <li>lacking internal administrative capacity</li>
+              <li>looking for structured remote business support</li>
+              <li>needing temporary project execution support</li>
+            </ul>
+            <p>By providing professional virtual assistant services and operational support, I help businesses stay organized, reduce workload pressure and create more efficient workflows.</p>
+            <p style="margin-bottom:0"><strong>The result:</strong> clearer processes, better project execution and more time for strategic work.</p>
+          </article>
+      </div>
+    </section>
 
     <section id="services">
       <div class="container">
@@ -552,7 +623,7 @@
         </div>
         <div class="cards">
           <article class="card">
-            <h4>Project Management</h4>
+            <h4>📌 Project Management</h4>
             <p>Remote project management for teams that need structure, ownership and clear communication.</p>
             <ul class="list">
               <li>Project roadmaps, scope definition & risk management</li>
@@ -567,7 +638,7 @@
             <img class="thumb" src="images/Structure and controle.png" alt="Remote project planning, structure and control"/>
           </article>
           <article class="card">
-            <h4>General Support & Virtual Assistant</h4>
+            <h4>🧩 General Support & Virtual Assistant</h4>
             <p>Remote general support and virtual assistant services to keep your daily operations running smoothly.</p>
             <ul class="list">
               <li>Planning, scheduling and meeting coordination</li>
@@ -582,7 +653,7 @@
             <img class="thumb" src="images/logo.png" alt="Virtual assistant and operations support"/>
           </article>
           <article class="card">
-            <h4>Customer Management & CRM</h4>
+            <h4>🤝 Customer Management & CRM</h4>
             <p>Customer management and CRM support to strengthen relationships and improve retention.</p>
             <ul class="list">
               <li>CRM setup, clean-up and data maintenance</li>
@@ -595,6 +666,47 @@
               feedback into improvements. Every interaction aims to add value and increase loyalty.
             </p>
             <img class="thumb" src="images/CRM.png" alt="CRM setup, customer management and follow-up"/>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="offer-highlights">
+      <div class="container">
+        <div class="section-head">
+          <h3>Examples, pricing and why work with me</h3>
+          <span class="badge">Quick overview</span>
+        </div>
+        <div class="cards">
+          <article class="card" id="examples">
+            <h4>Examples of what I do</h4>
+            <span class="badge">Concrete day-to-day support</span>
+            <ul class="list" style="margin-top:.8rem">
+              <li>Organize project documentation and decision logs</li>
+              <li>Manage task lists and follow-up actions</li>
+              <li>Improve workflows and remove bottlenecks</li>
+              <li>Prepare reporting for leadership and stakeholders</li>
+              <li>Support customer communication and follow-up</li>
+              <li>Coordinate schedules, meetings and handovers</li>
+            </ul>
+          </article>
+          <article class="card" id="pricing">
+            <h4>Pricing indication</h4>
+            <span class="badge">Clear and transparent</span>
+            <p style="margin-top:.8rem"><strong>Remote operations support:</strong> from <strong>€60 per hour</strong>, depending on task and responsibility.</p>
+            <p><strong>Project-based work:</strong> price on request (based on scope and timeline)</p>
+            <p><strong>Final price:</strong> contact me please.</p>
+            <p style="color:var(--muted);margin-bottom:0">Need clarity first? Book a discovery call and I will propose the best setup for your case.</p>
+          </article>
+          <article class="card" id="why-work-with-me">
+            <h4>Why work with me</h4>
+            <span class="badge">Practical and dependable</span>
+            <ul class="list" style="margin-top:.8rem">
+              <li>Practical mindset with fast execution</li>
+              <li>Structured approach that creates calm and overview</li>
+              <li>Reliable communication and consistent follow-up</li>
+              <li>Experience supporting busy teams and growing organizations</li>
+            </ul>
           </article>
         </div>
       </div>
