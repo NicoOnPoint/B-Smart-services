@@ -442,7 +442,7 @@
     "name": "B-Smart Services",
     "url": "https://b-smart-services.com/",
     "description": "Remote freelance project manager, virtual assistant and operations support, based in Lesjöfors, Värmland (Sweden).",
-    "email": "B-Smartservices@outlook.com",
+    "email": "info@b-smart-services.com",
     "telephone": "+31645683664",
     "address": {
       "@type": "PostalAddress",
@@ -540,7 +540,7 @@
           </div>
           <div class="socials" style="margin-top:1rem">
             <a class="iconbtn" href="https://www.linkedin.com/in/barbara-strick-1bab8321a/" target="_blank" rel="noopener noreferrer" data-linkedin>LinkedIn Barbara</a>
-            <a class="iconbtn" href="mailto:B-Smartservices@outlook.com">B-Smartservices@outlook.com</a>
+            <a class="iconbtn" href="#contact">Contact via form</a>
           </div>
         </div>
         <div class="card" style="background:var(--card);border:1px solid var(--border);text-align:center">
@@ -715,7 +715,7 @@
     <section id="quick-details" class="quickbar">
       <div class="container">
         <div class="qcol split">
-          <span class="pill"><strong>Email:</strong> <a href="mailto:B-Smartservices@outlook.com">B-Smartservices@outlook.com</a></span>
+          <span class="pill"><strong>Email:</strong> <a href="#contact">Go to contact form</a></span>
           <span class="pill"><strong>Phone:</strong> <a href="tel:+31645683664">+31 6 456 836 64</a> <span style="color:var(--muted)">(Free intake call)</span></span>
           <span class="pill"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/barbara-strick-1bab8321a/" target="_blank" rel="noopener noreferrer" data-linkedin>LinkedIn Barbara</a></span>
         </div>
@@ -852,38 +852,45 @@
         <div class="section-head"><h3>Contact</h3><span class="badge">Reply within 1 business day</span></div>
         <div class="cards">
           <article class="card">
-            <form id="contactForm" action="#" method="POST">
+            <form id="contactForm" action="https://formsubmit.co/info@b-smart-services.com" method="POST" accept-charset="UTF-8">
+              <input type="hidden" name="_subject" value="Website contact - B-Smart Services">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_next" value="https://b-smart-services.com/thanks.html">
+              <input type="hidden" name="_template" value="table">
               <div class="grid-2">
                 <div>
-                  <label for="name">Name</label>
-                  <input id="name" name="name" required />
+                  <label for="contactName">Name</label>
+                  <input id="contactName" name="name" required />
                 </div>
                 <div>
-                  <label for="company">Company</label>
-                  <input id="company" name="company" />
+                  <label for="contactCompany">Company</label>
+                  <input id="contactCompany" name="company" />
                 </div>
               </div>
               <div class="grid-2" style="margin-top:.6rem">
                 <div>
-                  <label for="email">Email <span style="color:#b42318">(required)</span></label>
-                  <input id="email" name="email" type="email" required />
+                  <label for="contactEmail">Email <span style="color:#b42318">(required)</span></label>
+                  <input id="contactEmail" name="email" type="email" required />
                 </div>
                 <div>
-                  <label for="phone">Phone <span style="color:var(--muted)">(optional)</span></label>
-                  <input id="phone" name="phone" />
+                  <label for="contactPhone">Phone <span style="color:var(--muted)">(optional)</span></label>
+                  <input id="contactPhone" name="phone" />
                 </div>
               </div>
               <div style="margin-top:.6rem">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" required placeholder="How can we help?"></textarea>
+                <label for="contactMessage">Message</label>
+                <textarea id="contactMessage" name="message" required placeholder="How can we help?"></textarea>
               </div>
               <div class="consent-row">
-  <input id="consent" name="consent" type="checkbox" required />
-  <label for="consent">I agree to processing my data to answer my request.</label>
-</div>
+                <input id="contactConsent" name="consent" type="checkbox" required />
+                <label for="contactConsent">I agree to processing my data to answer my request.</label>
+              </div>
 
-              
-              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+              <div style="margin-top:.9rem;text-align:center">
+                <button class="btn primary" type="submit">Send message</button>
+              </div>
+
+              <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
               <small id="contactNote" style="display:block;margin-top:.6rem;color:var(--muted);text-align:center"></small>
             </form>
           </article>
@@ -905,11 +912,15 @@
     document.getElementById('year').textContent = new Date().getFullYear();
 
     const API_BASE = 'https://bsmart-testimonials.b-smartservices.workers.dev';
-    const FORMSPREE = 'https://formspree.io/f/mpwyeywb';
+    const IS_LOCAL = ['localhost', '127.0.0.1'].includes(window.location.hostname);
 
     function escapeHtml(s){
       const map = { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' };
       return String(s||'').replace(/[&<>"]/g, ch => map[ch] || ch);
+    }
+
+    function showPlainNote(noteEl, text){
+      noteEl.textContent = text;
     }
 
     async function fetchTestimonials(){
@@ -936,8 +947,11 @@
       const fd = new FormData(form);
       if (fd.get('_gotcha')) { return; }
       const data = Object.fromEntries(fd.entries());
+      if (IS_LOCAL) {
+        showPlainNote(note, 'Local preview: testimonials can only be submitted on the live domain.');
+        return;
+      }
 
-      let approveUrl = '';
       try{
         const res = await fetch(`${API_BASE}/api/testimonials`, {
           method:'POST',
@@ -946,46 +960,13 @@
         });
         const out = await res.json();
         if(!res.ok || !out.ok){ throw new Error(out.error||'failed'); }
-        approveUrl = out.approveUrl || '';
       }catch(err){
-        note.textContent = 'Could not submit right now. Please try later.';
+        showPlainNote(note, 'Testimonial service is temporarily unavailable. Please try again later.');
         return;
       }
 
-      try{
-        await fetch(FORMSPREE, {
-          method:'POST',
-          headers:{'Accept':'application/json','Content-Type':'application/json'},
-          body:JSON.stringify({...data, approveUrl})
-        });
-      }catch{}
-
       note.textContent = 'Thanks! Your testimonial is pending approval.';
       form.reset();
-    });
-
-    const cform = document.getElementById('contactForm');
-    const cnote = document.getElementById('contactNote');
-    cform.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      const fd = new FormData(cform);
-      if (fd.get('_gotcha')) { return; }
-      const data = Object.fromEntries(fd.entries());
-      try{
-        const res = await fetch(FORMSPREE, {
-          method:'POST',
-          headers:{'Accept':'application/json','Content-Type':'application/json'},
-          body:JSON.stringify(data)
-        });
-        if(res.ok){
-          cnote.textContent='Sent! We will get back to you shortly.';
-          cform.reset();
-        } else {
-          cnote.textContent='Sent, but please verify your form endpoint.';
-        }
-      }catch(err){
-        cnote.textContent='Could not send. Please check your internet connection or form endpoint.';
-      }
     });
 
     fetchTestimonials();
