@@ -852,6 +852,10 @@
         <div class="section-head"><h3>Contact</h3><span class="badge">Reply within 1 business day</span></div>
         <div class="cards">
           <article class="card">
+            <p style="margin:0 0 1.2rem;color:var(--muted);text-align:center">
+              Or email us directly at
+              <a href="mailto:info@b-smart-services.com" style="font-weight:700;text-decoration:underline;text-underline-offset:2px">info@b-smart-services.com</a>
+            </p>
             <form id="contactForm" action="https://formsubmit.co/info@b-smart-services.com" method="POST" accept-charset="UTF-8">
               <input type="hidden" name="_subject" value="Website contact - B-Smart Services">
               <input type="hidden" name="_captcha" value="false">
@@ -900,8 +904,9 @@
   </main>
 
   <footer>
-    <div class="container row" style="gap:1rem;flex-wrap:wrap">
+    <div class="container" style="display:flex;flex-direction:column;align-items:center;gap:.55rem;text-align:center">
       <div>© <span id="year"></span> B-Smart Services</div>
+      <div><a href="mailto:info@b-smart-services.com">info@b-smart-services.com</a></div>
       <div>© <a href="https://nico-on-point-webdesign.com/" target="_blank" rel="noopener">Webdesign: Nico on Point webdesign 2025</a></div>
       <div style="color:var(--muted)">Privacy policy on request • Company/VAT on quote</div>
     </div>
@@ -942,6 +947,26 @@
     const form = document.getElementById('testiForm');
     const note = document.getElementById('testiNote');
 
+    async function notifyTestimonialByEmail(data){
+      const fd = new FormData();
+      fd.append('name', data.name || '');
+      fd.append('role', data.role || '');
+      fd.append('email', data.email || '');
+      fd.append('message', data.message || '');
+      fd.append('approve_url', data.approve_url || '');
+      fd.append('reject_url', data.reject_url || '');
+      fd.append('_gotcha', data._gotcha || '');
+
+      const res = await fetch('testimonial_notify.php', {
+        method:'POST',
+        body: fd
+      });
+
+      if (!res.ok) {
+        throw new Error('mail notify failed');
+      }
+    }
+
     form.addEventListener('submit', async (e)=>{
       e.preventDefault();
       const fd = new FormData(form);
@@ -960,9 +985,17 @@
         });
         const out = await res.json();
         if(!res.ok || !out.ok){ throw new Error(out.error||'failed'); }
+        data.approve_url = out.approveUrl || '';
+        data.reject_url = out.rejectUrl || '';
       }catch(err){
         showPlainNote(note, 'Testimonial service is temporarily unavailable. Please try again later.');
         return;
+      }
+
+      try{
+        await notifyTestimonialByEmail(data);
+      }catch(err){
+        console.warn('Testimonial email notification failed', err);
       }
 
       note.textContent = 'Thanks! Your testimonial is pending approval.';
