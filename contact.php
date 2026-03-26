@@ -24,6 +24,13 @@ $name = clean_field('name');
 $company = clean_field('company');
 $email = clean_field('email');
 $phone = clean_field('phone');
+$requestType = clean_field('request_type');
+$service = clean_field('service');
+$supportType = clean_field('support_type');
+$hours = clean_field('estimated_hours');
+$budget = clean_field('budget_range');
+$startDate = clean_field('start_date');
+$timeline = clean_field('timeline');
 $message = clean_field('message');
 $consent = clean_field('consent');
 
@@ -45,13 +52,36 @@ if (preg_match('/[\r\n]/', $name . $email)) {
     exit;
 }
 
+$validRequestTypes = ['general_contact', 'price_request', 'price_and_contact'];
+if ($requestType !== '' && !in_array($requestType, $validRequestTypes, true)) {
+    http_response_code(422);
+    echo json_encode(['ok' => false, 'error' => 'Invalid request type']);
+    exit;
+}
+
+$requestLabelMap = [
+    'general_contact' => 'General contact',
+    'price_request' => 'Price request',
+    'price_and_contact' => 'Price request + contact',
+];
+$requestLabel = $requestLabelMap[$requestType] ?? 'General contact';
+
 $to = 'info@b-smart-services.com';
-$subject = 'New contact request - B-Smart Services';
+$subject = $requestType === 'general_contact' || $requestType === ''
+    ? 'New contact request - B-Smart Services'
+    : 'New quote request - B-Smart Services';
 $body = "New contact request\n\n"
+    . "Request type: {$requestLabel}\n"
     . "Name: {$name}\n"
     . "Company: {$company}\n"
     . "Email: {$email}\n"
     . "Phone: {$phone}\n"
+    . "Service needed: {$service}\n"
+    . "Support model: {$supportType}\n"
+    . "Estimated hours: {$hours}\n"
+    . "Budget range: {$budget}\n"
+    . "Preferred start date: {$startDate}\n"
+    . "Timeline / deadline: {$timeline}\n"
     . "Message:\n{$message}\n\n"
     . "Submitted: " . gmdate('Y-m-d H:i:s') . " UTC\n"
     . "IP: " . ($_SERVER['REMOTE_ADDR'] ?? 'unknown') . "\n";
