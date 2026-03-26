@@ -66,6 +66,7 @@
     .mini-note{background:linear-gradient(180deg,var(--bee),#fff8db);border:1px solid var(--brand);border-radius:14px;padding:.95rem 1rem;margin-top:1rem}
     .contact-list{display:grid;gap:.8rem;margin-top:1rem}
     .contact-item{display:flex;gap:.7rem;align-items:flex-start;padding:.85rem 1rem;background:linear-gradient(180deg,var(--bee),#fff8db);border:1px solid var(--brand);border-radius:14px}
+    .contact-value{display:block}
     .form-card{padding:1.5rem;background:rgba(255,255,255,.97)}
     .form-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1rem}
     form{display:grid;gap:.9rem}
@@ -95,6 +96,9 @@
     @media (max-width: 640px){
       .grid-2,.pricing-grid,.section-grid{grid-template-columns:1fr}
       .form-card,.panel{padding:1.15rem}
+      .contact-item{flex-direction:column;align-items:flex-start;gap:.35rem}
+      .contact-item strong,.contact-value,.contact-item a{display:block;width:100%}
+      .contact-item a{word-break:break-word}
     }
   </style>
   <script type="application/ld+json">
@@ -216,9 +220,9 @@
         </div>
 
         <div class="contact-list">
-          <div class="contact-item"><strong>Email:</strong> <a href="mailto:info@b-smart-services.com">info@b-smart-services.com</a></div>
-          <div class="contact-item"><strong>Phone / WhatsApp:</strong> <a href="tel:+31645683664">+31 6 456 836 64</a></div>
-          <div class="contact-item"><strong>Reply time:</strong> usually within 1 business day</div>
+          <div class="contact-item"><strong>Email:</strong><span class="contact-value"><a href="mailto:info@b-smart-services.com">info@b-smart-services.com</a></span></div>
+          <div class="contact-item"><strong>Phone / WhatsApp:</strong><span class="contact-value"><a href="tel:+31645683664">+31 6 456 836 64</a></span></div>
+          <div class="contact-item"><strong>Reply time:</strong><span class="contact-value">usually within 1 business day</span></div>
         </div>
       </section>
 
