@@ -237,7 +237,7 @@
           <span class="badge">Fast intake</span>
         </div>
 
-        <form id="quoteContactForm" action="contact.php" method="POST" accept-charset="UTF-8">
+        <form id="quoteContactForm" action="https://formspree.io/f/mpwyeywb" method="POST" accept-charset="UTF-8">
           <div>
             <label>Request type</label>
             <div class="request-switch">
@@ -348,6 +348,8 @@
             <label for="contactConsent" style="margin:0">I agree to processing my data to answer my request.</label>
           </div>
 
+          <input type="hidden" name="_subject" value="New request from B-Smart Services website">
+          <input type="hidden" name="_language" value="en">
           <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
 
           <div class="actions">
@@ -390,23 +392,31 @@
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
+
       note.className = 'note';
       note.textContent = 'Sending your request...';
 
       const formData = new FormData(form);
 
       try {
-        const response = await fetch('contact.php', {
+        const response = await fetch(form.action, {
           method: 'POST',
-          body: formData
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
         });
 
-        const result = await response.json();
-        if (!response.ok || !result.ok) {
-          throw new Error(result.error || 'Submission failed');
-        }
+        const data = await response.json();
 
-        window.location.href = 'thanks.html';
+        if (response.ok) {
+          form.reset();
+          updatePricingFields();
+          window.location.href = 'thanks.html';
+        } else {
+          note.className = 'note error';
+          note.textContent = data.errors?.map(error => error.message).join(', ') || 'Submission failed.';
+        }
       } catch (error) {
         note.className = 'note error';
         note.textContent = 'Something went wrong. Please try again or email info@b-smart-services.com.';
